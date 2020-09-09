@@ -9,30 +9,30 @@
   </url>
   
   <url>
-    <loc>http://example.com/messageboard/index.html</loc>
+    <loc>http://example.com/tags/index.html</loc>
     
-    <lastmod>2020-09-08</lastmod>
+    <lastmod>2020-09-09</lastmod>
     
   </url>
   
   <url>
     <loc>http://example.com/categories/index.html</loc>
     
-    <lastmod>2020-09-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/index.html</loc>
-    
-    <lastmod>2020-09-08</lastmod>
+    <lastmod>2020-09-09</lastmod>
     
   </url>
   
   <url>
     <loc>http://example.com/link/index.html</loc>
     
-    <lastmod>2020-09-08</lastmod>
+    <lastmod>2020-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/messageboard/index.html</loc>
+    
+    <lastmod>2020-09-09</lastmod>
     
   </url>
   
