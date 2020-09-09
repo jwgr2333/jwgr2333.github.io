@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
-    
-    <lastmod>2020-09-08</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://example.com/2020/09/08/first-article/</loc>
     
     <lastmod>2020-09-08</lastmod>
@@ -16,14 +9,21 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>http://example.com/messageboard/index.html</loc>
     
     <lastmod>2020-09-08</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/messageboard/index.html</loc>
+    <loc>http://example.com/categories/index.html</loc>
+    
+    <lastmod>2020-09-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/index.html</loc>
     
     <lastmod>2020-09-08</lastmod>
     
@@ -67,15 +67,15 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2020-09-08</lastmod>
+    <lastmod>2020-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://example.com/tags/tagTest/</loc>
-    <lastmod>2020-09-08</lastmod>
+    <loc>http://example.com/tags/Hexo/</loc>
+    <lastmod>2020-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -83,8 +83,8 @@
 
   
   <url>
-    <loc>http://example.com/categories/catTest/</loc>
-    <lastmod>2020-09-08</lastmod>
+    <loc>http://example.com/categories/blog-build/</loc>
+    <lastmod>2020-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
