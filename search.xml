@@ -11,7 +11,7 @@
     <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下npm -v , node -v。如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
 <h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>创建一个blog文件夹并进入，当然，起名可以无所谓。使用hexo init 初始化。等待完成后，hexo s 启动服务。这样你就拥有了一个最初的模板了。</p>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>显然，我们不可能只在本地使用，那就直接搞md算了，何必用hexo。为了把我们的博客部署到github上，我们需要在主目录下 npm i -S hexo-deployer-git 安装这个插件帮助我们。接下来，修改一下主目录的_config.yml文件的deploy属性如图</p>
-<p><img src="....%5Csource%5Cimgs%5Cimage-20200908201329857.png" alt="image-20200908201329857"></p>
+<p><img src="../../source/imgs/image-20200908201329857.png" alt="image-20200908201329857"></p>
 <p>注意空格，同时在github需要创建一个仓库，取名一定是username.github.io  参照我的。随后使用命令，</p>
 <p>hexo clean,hexo g, hexo d 就完成了往github的上传。这时，在浏览器输入<a href="https://username.github.io就可以看到啦./">https://username.github.io就可以看到啦。</a></p>
 <p><font color="red">此外，有一些配置也是可以改的，比如title, languages, 等 如果是部署到个人的云服务器上的话可能需要修改URL，我是在github上所以可以暂时不用改</font></p>
