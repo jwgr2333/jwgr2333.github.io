@@ -72,7 +72,8 @@
 </ul>
 <p>然后还有字数统计、特效等功能，只要你想开都是可以的。因为作者是香港人，所以有中文提示，按照提示来就完事了。</p>
 <p><font color="red">在设置评论时，同时发现了一个问题，即不只是在messageboard下有评论框，在categories、tags下面都有。只需要在创建的index页面下加入这个即可</font></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://jwgr2333.github.io/imgs/image-20200909200350809.png" alt="image-20200909200350809"></h2><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>暂时就写到这里吧，还有东西是我没有完善的。比如友链、music、videos、线上管理等。日后有时间可以继续完善吧~ 今天先做到这里。不得不说，hexo是一个非常优秀的博客框架。采用Markdown简直不要太方便。对我来说友好度爆棚。。而且用户庞大，意味着可以踩着前人的肩膀上前进。非常感谢先驱者的付出.</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200909200350809.png" alt="image"></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>暂时就写到这里吧，还有东西是我没有完善的。比如友链、music、videos、线上管理等。日后有时间可以继续完善吧~ 今天先做到这里。不得不说，hexo是一个非常优秀的博客框架。采用Markdown简直不要太方便。对我来说友好度爆棚。。而且用户庞大，意味着可以踩着前人的肩膀上前进。非常感谢先驱者的付出.</p>
 <h2 id="BUG"><a href="#BUG" class="headerlink" title="BUG"></a>BUG</h2><p>本地图片显示不出来，改用相对路径也无法显示。（个人采用的是把本地的图片复制到imgs文件夹中一起上传到后台，然后通过github下的链接引用，如：<a href="https://jwgr2333.github.io/imgs/image-20200908211034230.png%EF%BC%89%E3%80%82%E8%BF%99%E6%A0%B7%E5%B0%B1%E4%B8%8D%E4%BC%9A%E6%9C%89%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%E4%BA%86%E3%80%82">https://jwgr2333.github.io/imgs/image-20200908211034230.png）。这样就不会有图片显示的问题了。</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>作者：<a href="https://github.com/jerryc127">jerryc127</a>，github链接：<a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a><br>作者：<a href="https://me.csdn.net/weixin_43350051">XJHui’s Blog</a>，文章链接：<a href="https://blog.csdn.net/weixin_43350051/article/details/104923503">https://blog.csdn.net/weixin_43350051/article/details/104923503</a></p>
 ]]></content>
