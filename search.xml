@@ -3,7 +3,14 @@
   <entry>
     <title>STM32</title>
     <url>/2020/09/10/STM32/</url>
-    <content><![CDATA[<img src="/2020/09/10/STM32/stm32.jpg" alt="image" style="zoom:25%;">]]></content>
+    <content><![CDATA[<img src="/2020/09/10/STM32/stm32.jpg" alt="image" style="zoom:25%;">
+
+<h2 id="测控"><a href="#测控" class="headerlink" title="测控"></a>测控</h2><ul>
+<li>被调剂到测控属实不行，啥都不会，发不了论文，学的前端也毫无作用。导师最后还是让我学习测控需要掌握的知识。</li>
+<li>stm32</li>
+<li>plc</li>
+</ul>
+<h2 id="STM32-寄存器"><a href="#STM32-寄存器" class="headerlink" title="STM32 寄存器"></a>STM32 寄存器</h2>]]></content>
       <tags>
         <tag>stm32</tag>
       </tags>
