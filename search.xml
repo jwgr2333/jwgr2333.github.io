@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>categories</title>
-    <url>/2020/09/08/categories/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>first article</title>
     <url>/2020/09/08/first-article/</url>
     <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下npm -v , node -v。如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
@@ -102,5 +97,30 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/2020/09/08/categories/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>吐槽200910</title>
+    <url>/2020/09/10/%E5%90%90%E6%A7%BD200910/</url>
+    <content><![CDATA[<h5 id="吐槽黄色衣服的小哥"><a href="#吐槽黄色衣服的小哥" class="headerlink" title="吐槽黄色衣服的小哥"></a>吐槽黄色衣服的小哥</h5><ul>
+<li><p>刚进门就一个劲的推荐办卡</p>
+</li>
+<li><p>在解释自己已经有卡之后，沉浸了一段时间。</p>
+</li>
+<li><p>小哥发现头发侧面有点翘起来，让我去把这部分的头发做一下。（可能是因为头发长睡觉睡的）。我提出今天没时间，下次吧（委婉拒绝），小哥不依不饶，多次提出可以预约。我的耐心已经被消耗殆尽了。o(一︿一+)o！！最终忍无可忍直接拒绝。小哥甚至在拒绝后还是在絮絮叨叨。</p>
+</li>
+<li><p>下次还是选择其他的师傅吧，(⊙﹏⊙)。</p>
+</li>
+<li><p>想安安静静的剪个头发怎么这么难呢~</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>理发店</tag>
+      </tags>
   </entry>
 </search>
