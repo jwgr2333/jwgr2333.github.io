@@ -19,29 +19,6 @@
       </tags>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/2020/09/08/categories/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/09/08/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>first article</title>
     <url>/2020/09/08/first-article/</url>
     <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下npm -v , node -v。如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
@@ -122,6 +99,71 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2020/02/10/git/</url>
+    <content><![CDATA[<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ul>
+<li><p>在第一次使用时需要配置相关信息，配置两步</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;1329042571@qq.com&quot;&#x2F;&#x2F;全局配置邮箱</span><br><span class="line">git config --global user.name&quot;谢鑫&quot;&#x2F;&#x2F;全局配置姓名</span><br><span class="line">git config user.name&#x2F;&#x2F;查看当前配置用户名</span><br><span class="line">git config user.email&#x2F;&#x2F;查看当前配置邮箱</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个仓库</p>
+<p>在需要提交git 的目录git bash here，然后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitinit &#x2F;&#x2F;初始化</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们很容易遇到这样的错误</p>
+</li>
+</ul>
+<p><img src="/2020/02/10/git/Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200516110434481.png" alt="image-20200516110434481"></p>
+<ul>
+<li>这是文件无法跟踪，我们需要把这个文件加到git操作里面</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add git练习.txt&#x2F;&#x2F;添加单个文件</span><br><span class="line">git add .  &#x2F;&#x2F;添加多个文件</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>提交</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;提交信息，必须写&quot;&#x2F;&#x2F;提交工作区的git代码到本地的git仓库</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>版本回退</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^ &#x2F;&#x2F;回退一个版本</span><br><span class="line">git reset --hard HEAD^^ &#x2F;&#x2F;回退两个版本</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当回退后又想前进怎么办？</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard 10bcce3  &#x2F;&#x2F;回退指定的版本，后面的是具体版本的id</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>查看每个版本的id</p>
+</li>
+<li><pre><code class="git">git reflog
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### 当我们想把本地的新仓库与远程的仓库连接起来</span><br><span class="line"></span><br><span class="line">+ 注意，如果是新的，那么最好是空仓库</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;git</span><br><span class="line">&#x2F;&#x2F;进入所在仓库的目录</span><br><span class="line">&#x2F;&#x2F;与远程仓库连接</span><br><span class="line">git remote add origin 仓库地址</span><br><span class="line">&#x2F;&#x2F;推送，</span><br><span class="line">&#x2F;&#x2F;可能要输入密码，就输入我的密码就行了，不是输入秘钥</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h3 id="加入已经有的仓库"><a href="#加入已经有的仓库" class="headerlink" title="加入已经有的仓库"></a>加入已经有的仓库</h3><ul>
+<li><pre><code class="git">git clone
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 拉取</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;git</span><br><span class="line">git pull origin master &#x2F;&#x2F;从主分支拉取</span><br></pre></td></tr></table></figure>
+
+
+</code></pre>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>git操作</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack笔记</title>
+    <url>/2020/09/12/webpack%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)*。当 *webpack</em> 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle</em>。 —— <em>webpack</em>官网</p>
+<p>简而言之， webpack会</p>
+]]></content>
+  </entry>
+  <entry>
     <title>吐槽200910</title>
     <url>/2020/09/10/%E5%90%90%E6%A7%BD200910/</url>
     <content><![CDATA[<h5 id="吐槽黄色衣服的小哥"><a href="#吐槽黄色衣服的小哥" class="headerlink" title="吐槽黄色衣服的小哥"></a>吐槽黄色衣服的小哥</h5><ul>
@@ -142,6 +184,43 @@
       </categories>
       <tags>
         <tag>理发店</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数控系统</title>
+    <url>/2020/09/16/%E6%95%B0%E6%8E%A7%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="数控系统指令"><a href="#数控系统指令" class="headerlink" title="数控系统指令"></a>数控系统指令</h2><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><ul>
+<li>G 准备功能指令</li>
+<li>M 辅助功能指令</li>
+<li>F 进给速度指令 如F100</li>
+<li>S 主轴速度功能指令 （一定在零件加工前启动主轴运转）</li>
+<li>T 指令 Tnn  刀具功能指令</li>
+</ul>
+<h4 id="常用准备功能指令"><a href="#常用准备功能指令" class="headerlink" title="常用准备功能指令"></a>常用准备功能指令</h4><ul>
+<li><p>与坐标系有关的指令</p>
+<ol>
+<li>绝对坐标与增量坐标指示 —— G90、G91</li>
+<li>坐标系设定指示 —— G92</li>
+<li>坐标平面选择指令 —— G17、G18、G19 分别对应XY、ZX、YZ坐标平面的功能。</li>
+</ol>
+</li>
+<li><p>运动控制指令</p>
+<ol>
+<li><p>快速点定位指令 —— G00，使刀具从当前位置以系统设定的最快速度快速移动到目的点。（快速定位）</p>
+<p><font color="red">注意，最好了解操作机床的运动轨迹。三种方式中了解其中一种</font></p>
+</li>
+<li><p>直线插补指令——G01，该功能是直线运动控制指令，它命令刀具从当前位置以两坐标或三坐标联动方式按指定的F进给速度作任意斜率的直线运动到达指定的位置。该指令一般用作轮廓切削、</p>
+<ul>
+<li>格式：G01 X- Y- Z- F-；其中，XYZ为直线终点的绝对或增量坐标。F为沿插补方向的进给速度</li>
+</ul>
+<p><font color="red">G01指令既可以双坐标联动插补运动，又可以三坐标两栋插补运动，取决于数控系统的功能，当指令后面只有两个坐标值时，刀具将作平面直线插补，若有三个坐标值时，将做空间直线插补</font></p>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
       </tags>
   </entry>
 </search>
