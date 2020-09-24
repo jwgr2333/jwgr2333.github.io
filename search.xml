@@ -217,6 +217,8 @@
 </li>
 </ol>
 </li>
+<li><p>圆弧插补指令——G02、G03</p>
+</li>
 </ul>
 ]]></content>
       <tags>
@@ -297,16 +299,156 @@
 </li>
 <li><p>PC：程序计数器，存放下一条指令地址，有自动加一的功能 </p>
 <img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0823.png" alt="img_0823" style="zoom:25%;">
+</li>
+</ul>
+</li>
+<li><p>编译程序与解释程序</p>
+<ul>
+<li>编译：将源程序全部语句一次全部翻译成机器语言程序，然后再执行机器语言程序（只需翻译一次）</li>
+<li>解释：将源程序的一条语句翻译成对应于机器语言的语句，并立即执行，紧接着再翻译下一句。</li>
+</ul>
+</li>
+<li><p>在收到指令后，硬件如何工作？</p>
+</li>
+<li><p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0824.png" alt="img_0824"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="计算进数制"><a href="#计算进数制" class="headerlink" title="计算进数制"></a>计算进数制</h5><ul>
+<li><p>数据如何在计算机中表示？</p>
+</li>
+<li><p>运算器如何实现数据的运算？</p>
+</li>
+<li><p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0825.png" alt="img_0825"></p>
+<h5 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h5></li>
+</ul>
+<p>用四个二进制表示十进制。其中有四个是冗余的</p>
+<ul>
+<li>8421码，如果两个数相加落在了非法区间（1010-10010），那么需要加6进行修正 </li>
+<li>余三码，8421码+（0011）<sub>2</sub></li>
+<li>2421码</li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0826.png" alt="img_0826"></li>
+</ul>
+<h5 id="字符与字符串"><a href="#字符与字符串" class="headerlink" title="字符与字符串"></a>字符与字符串</h5><ul>
+<li><p>ASCII码</p>
+<ul>
+<li>数字、字母、符号。共128个字符，刚好是2<sup>7</sup>。</li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0827.png" alt="img_0827"></li>
+</ul>
+</li>
+<li><p>汉字的表示与编码</p>
+<ul>
+<li>GB2312-80</li>
+</ul>
+<p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0828.png" alt="img_0828"></p>
+<h5 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h5><p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0829.png" alt="img_0829"></p>
+</li>
+</ul>
+<h5 id="海明校验码"><a href="#海明校验码" class="headerlink" title="海明校验码"></a>海明校验码</h5><ul>
+<li>把信息位进行分组，分别进行偶校验，多个校验位标注出错位置</li>
+<li>2<sup>k</sup>  &gt; n+k+1(信息位加校验位加正确的情况)  </li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0830.png" alt="img_0830">      </li>
+</ul>
+<h5 id="循环冗余校检码"><a href="#循环冗余校检码" class="headerlink" title="循环冗余校检码"></a>循环冗余校检码</h5><p>​    约定一个除数。信息位加校验位作为被除数。看余数是否为0</p>
+<ul>
+<li>模二除，模二减                                                                         </li>
+</ul>
+<p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0831.png" alt="img_0831"></p>
+<h5 id="定点数、浮点数"><a href="#定点数、浮点数" class="headerlink" title="定点数、浮点数"></a>定点数、浮点数</h5><ul>
+<li><p>整个机器字长的全部二进制均为数值位，没有符号位，相当于数的绝对值</p>
+</li>
+<li><p>无符号数</p>
+</li>
+<li><p>有符号数的定点表示（采用原码、反码、补码）</p>
+<ul>
+<li>原码<ul>
+<li>采用-定点整数与定点小数表示，符号位+数值部分。</li>
+</ul>
+</li>
+<li>反码（并没有太大的用处）<ul>
+<li>如果符号位为0，反码与原码完全相同</li>
+<li>如果符号位为1，则数值位完全取反</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>补码</p>
+<ul>
+<li>正数的补码为原码</li>
+<li>负数的补码 = 反码末尾+1<ul>
+<li>移码</li>
+</ul>
+</li>
+<li>在补码的基础上将符号位取反，移码只用于整数</li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0832.png" alt="img_0832"><ul>
+<li>减法操作可以通过补码转换成加法操作</li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0834.png" alt="img_0834" style="zoom:25%;"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>强制类型转换</p>
+<ul>
+<li>有符号数转无符号数，改变解释方式，不改变数据内容</li>
+<li>长整数变短整数。高位截短，保留低位</li>
+<li>短数据转长数据，符号扩展</li>
+</ul>
+</li>
+<li><p>数据的存储与排列</p>
+<ul>
+<li>存储字节的方式<ul>
+<li>大/小端方式（存储方式由低字节到高字节，小端是反过来存储的 ）</li>
+<li>边界对齐</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h5><p>为了解决当使用int字节不够时采用的存储数据的方式·分为阶码和尾数。</p>
+<ul>
+<li>阶码： 常用补码或移码表示的定点整数  E</li>
+<li>尾数：常用原码或补码表示的定点小数   M                                 </li>
+</ul>
+<p>浮点数的真值 N = r <sup>E</sup> x  M  (r为阶码的底，一般为2)</p>
+<p>为了让浮点数能存储更多的数据。左规与右规</p>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0835.png" alt="img_0835" style="zoom:25%;">
 
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<h5 id="电路基本原理"><a href="#电路基本原理" class="headerlink" title="电路基本原理"></a>电路基本原理</h5><ul>
+<li>算术逻辑单元 ALU</li>
 </ul>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
+  </entry>
+  <entry>
+    <title>记uniapp组件坑</title>
+    <url>/2020/09/24/%E8%AE%B0uniapp%E7%BB%84%E4%BB%B6%E5%9D%91/</url>
+    <content><![CDATA[<h4 id="uniapp组件"><a href="#uniapp组件" class="headerlink" title="uniapp组件"></a>uniapp组件</h4><ul>
+<li>引入的坑</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//失败的例子，在app.vue中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;@/components/playView/playView&#x27;</span></span><br><span class="line">components:&#123;</span><br><span class="line">    playView</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//成功的例子，在main.js中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;./components/playView/playView.vue&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;play-view&#x27;</span>, playView)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>子组件调用父组件的坑，注意这里是@不是: ，这个语法用太少了。。。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//父组件引用子组件,</span></span><br><span class="line">&lt;play-view @hidePlayView=<span class="string">&quot;hidePlayView&quot;</span>&gt;&lt;/play-view&gt;</span><br><span class="line"><span class="comment">//父组件的方法</span></span><br><span class="line">hidePlayView()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$refs.playView.hide()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件内容</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;hide&quot;</span>&gt;hideView&lt;/button&gt;</span><br><span class="line">hide()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$emit(<span class="string">&#x27;hidePlayView&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在vue中使用vuex的问题</p>
+<ul>
+<li>问题，多个组件同时使用了this.$store.song的数据。当A组件使用this.$store.commit更新song的某一个数据后，打印出在this.$store.song的数据却是发生了变化，却没有触发b组件的computed属性。这是为什么？</li>
+<li>最后是通过其他方式解决了这个问题<ul>
+<li>我是想通过监听vuex中song的state的数据变化，实现对index页面下的iac播放器的控制，结果发现当改变了后却没有用，index下的computed监听事件没有变化。因此我后续给组件传入了iac对象解决了这个问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>踩坑</tag>
+      </tags>
   </entry>
 </search>
