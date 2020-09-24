@@ -99,6 +99,13 @@
       </tags>
   </entry>
   <entry>
+    <title>webpack笔记</title>
+    <url>/2020/09/12/webpack%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)*。当 *webpack</em> 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle</em>。 —— <em>webpack</em>官网</p>
+<p>简而言之， webpack会</p>
+]]></content>
+  </entry>
+  <entry>
     <title></title>
     <url>/2020/02/10/git/</url>
     <content><![CDATA[<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ul>
@@ -155,13 +162,6 @@
       <tags>
         <tag>git</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>webpack笔记</title>
-    <url>/2020/09/12/webpack%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)*。当 *webpack</em> 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle</em>。 —— <em>webpack</em>官网</p>
-<p>简而言之， webpack会</p>
-]]></content>
   </entry>
   <entry>
     <title>吐槽200910</title>
@@ -223,6 +223,35 @@
 ]]></content>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记uniapp组件坑</title>
+    <url>/2020/09/24/%E8%AE%B0uniapp%E7%BB%84%E4%BB%B6%E5%9D%91/</url>
+    <content><![CDATA[<h4 id="uniapp组件"><a href="#uniapp组件" class="headerlink" title="uniapp组件"></a>uniapp组件</h4><ul>
+<li>引入的坑</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//失败的例子，在app.vue中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;@/components/playView/playView&#x27;</span></span><br><span class="line">components:&#123;</span><br><span class="line">    playView</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//成功的例子，在main.js中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;./components/playView/playView.vue&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;play-view&#x27;</span>, playView)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>子组件调用父组件的坑，注意这里是@不是: ，这个语法用太少了。。。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//父组件引用子组件,</span></span><br><span class="line">&lt;play-view @hidePlayView=<span class="string">&quot;hidePlayView&quot;</span>&gt;&lt;/play-view&gt;</span><br><span class="line"><span class="comment">//父组件的方法</span></span><br><span class="line">hidePlayView()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$refs.playView.hide()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件内容</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;hide&quot;</span>&gt;hideView&lt;/button&gt;</span><br><span class="line">hide()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$emit(<span class="string">&#x27;hidePlayView&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在vue中使用vuex的问题</p>
+<ul>
+<li>问题，多个组件同时使用了this.$store.song的数据。当A组件使用this.$store.commit更新song的某一个数据后，打印出在this.$store.song的数据却是发生了变化，却没有触发b组件的computed属性。这是为什么？</li>
+<li>最后是通过其他方式解决了这个问题<ul>
+<li>我是想通过监听vuex中song的state的数据变化，实现对index页面下的iac播放器的控制，结果发现当改变了后却没有用，index下的computed监听事件没有变化。因此我后续给组件传入了iac对象解决了这个问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>踩坑</tag>
       </tags>
   </entry>
   <entry>
@@ -310,7 +339,8 @@
 </li>
 <li><p>在收到指令后，硬件如何工作？</p>
 </li>
-<li><p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0824.png" alt="img_0824"></p>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0824.png" alt="img_0824" style="zoom:25%;">
+
 </li>
 </ul>
 </li>
@@ -320,7 +350,8 @@
 </li>
 <li><p>运算器如何实现数据的运算？</p>
 </li>
-<li><p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0825.png" alt="img_0825"></p>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0825.png" alt="img_0825" style="zoom:25%;">
+
 <h5 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h5></li>
 </ul>
 <p>用四个二进制表示十进制。其中有四个是冗余的</p>
@@ -328,33 +359,41 @@
 <li>8421码，如果两个数相加落在了非法区间（1010-10010），那么需要加6进行修正 </li>
 <li>余三码，8421码+（0011）<sub>2</sub></li>
 <li>2421码</li>
-<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0826.png" alt="img_0826"></li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0826.png" alt="img_0825" style="zoom:25%;">
+
+</li>
 </ul>
 <h5 id="字符与字符串"><a href="#字符与字符串" class="headerlink" title="字符与字符串"></a>字符与字符串</h5><ul>
 <li><p>ASCII码</p>
 <ul>
 <li>数字、字母、符号。共128个字符，刚好是2<sup>7</sup>。</li>
-<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0827.png" alt="img_0827"></li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0827.png" alt="img_0825" style="zoom:25%;">
+</li>
 </ul>
 </li>
 <li><p>汉字的表示与编码</p>
 <ul>
 <li>GB2312-80</li>
 </ul>
-<p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0828.png" alt="img_0828"></p>
-<h5 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h5><p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0829.png" alt="img_0829"></p>
-</li>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0828.png" alt="img_0825" style="zoom:25%;">
+
+<h5 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h5></li>
 </ul>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0829.png" alt="img_0825" style="zoom:25%;">
+
 <h5 id="海明校验码"><a href="#海明校验码" class="headerlink" title="海明校验码"></a>海明校验码</h5><ul>
 <li>把信息位进行分组，分别进行偶校验，多个校验位标注出错位置</li>
 <li>2<sup>k</sup>  &gt; n+k+1(信息位加校验位加正确的情况)  </li>
-<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0830.png" alt="img_0830">      </li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0830.png" alt="img_0830" style="zoom:25%;">
+
+</li>
 </ul>
 <h5 id="循环冗余校检码"><a href="#循环冗余校检码" class="headerlink" title="循环冗余校检码"></a>循环冗余校检码</h5><p>​    约定一个除数。信息位加校验位作为被除数。看余数是否为0</p>
 <ul>
 <li>模二除，模二减                                                                         </li>
 </ul>
-<p><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0831.png" alt="img_0831"></p>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0831.png" alt="img_0831" style="zoom:25%;">
+
 <h5 id="定点数、浮点数"><a href="#定点数、浮点数" class="headerlink" title="定点数、浮点数"></a>定点数、浮点数</h5><ul>
 <li><p>整个机器字长的全部二进制均为数值位，没有符号位，相当于数的绝对值</p>
 </li>
@@ -381,11 +420,9 @@
 </ul>
 </li>
 <li>在补码的基础上将符号位取反，移码只用于整数</li>
-<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/.%5Cimg_0832.png" alt="img_0832"><ul>
-<li>减法操作可以通过补码转换成加法操作</li>
-<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0834.png" alt="img_0834" style="zoom:25%;"></li>
-</ul>
-</li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0832.png" alt="img_0832" style="zoom:25%;">
++  减法操作可以通过补码转换成加法操作
++  <img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0834.png" alt="img_0834" style="zoom:25%;"></li>
 </ul>
 </li>
 <li><p>强制类型转换</p>
@@ -421,34 +458,5 @@
       <categories>
         <category>笔记</category>
       </categories>
-  </entry>
-  <entry>
-    <title>记uniapp组件坑</title>
-    <url>/2020/09/24/%E8%AE%B0uniapp%E7%BB%84%E4%BB%B6%E5%9D%91/</url>
-    <content><![CDATA[<h4 id="uniapp组件"><a href="#uniapp组件" class="headerlink" title="uniapp组件"></a>uniapp组件</h4><ul>
-<li>引入的坑</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//失败的例子，在app.vue中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;@/components/playView/playView&#x27;</span></span><br><span class="line">components:&#123;</span><br><span class="line">    playView</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//成功的例子，在main.js中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;./components/playView/playView.vue&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;play-view&#x27;</span>, playView)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>子组件调用父组件的坑，注意这里是@不是: ，这个语法用太少了。。。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//父组件引用子组件,</span></span><br><span class="line">&lt;play-view @hidePlayView=<span class="string">&quot;hidePlayView&quot;</span>&gt;&lt;/play-view&gt;</span><br><span class="line"><span class="comment">//父组件的方法</span></span><br><span class="line">hidePlayView()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$refs.playView.hide()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件内容</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;hide&quot;</span>&gt;hideView&lt;/button&gt;</span><br><span class="line">hide()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$emit(<span class="string">&#x27;hidePlayView&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在vue中使用vuex的问题</p>
-<ul>
-<li>问题，多个组件同时使用了this.$store.song的数据。当A组件使用this.$store.commit更新song的某一个数据后，打印出在this.$store.song的数据却是发生了变化，却没有触发b组件的computed属性。这是为什么？</li>
-<li>最后是通过其他方式解决了这个问题<ul>
-<li>我是想通过监听vuex中song的state的数据变化，实现对index页面下的iac播放器的控制，结果发现当改变了后却没有用，index下的computed监听事件没有变化。因此我后续给组件传入了iac对象解决了这个问题。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>踩坑</tag>
-      </tags>
   </entry>
 </search>
