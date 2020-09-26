@@ -99,13 +99,6 @@
       </tags>
   </entry>
   <entry>
-    <title>webpack笔记</title>
-    <url>/2020/09/12/webpack%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)*。当 *webpack</em> 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle</em>。 —— <em>webpack</em>官网</p>
-<p>简而言之， webpack会</p>
-]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/2020/02/10/git/</url>
     <content><![CDATA[<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ul>
@@ -164,6 +157,13 @@
       </tags>
   </entry>
   <entry>
+    <title>webpack笔记</title>
+    <url>/2020/09/12/webpack%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h2><p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)*。当 *webpack</em> 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle</em>。 —— <em>webpack</em>官网</p>
+<p>简而言之， webpack会</p>
+]]></content>
+  </entry>
+  <entry>
     <title>吐槽200910</title>
     <url>/2020/09/10/%E5%90%90%E6%A7%BD200910/</url>
     <content><![CDATA[<h5 id="吐槽黄色衣服的小哥"><a href="#吐槽黄色衣服的小哥" class="headerlink" title="吐槽黄色衣服的小哥"></a>吐槽黄色衣服的小哥</h5><ul>
@@ -185,6 +185,11 @@
       <tags>
         <tag>理发店</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>操作系统学习笔记</title>
+    <url>/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>数控系统</title>
@@ -223,35 +228,6 @@
 ]]></content>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记uniapp组件坑</title>
-    <url>/2020/09/24/%E8%AE%B0uniapp%E7%BB%84%E4%BB%B6%E5%9D%91/</url>
-    <content><![CDATA[<h4 id="uniapp组件"><a href="#uniapp组件" class="headerlink" title="uniapp组件"></a>uniapp组件</h4><ul>
-<li>引入的坑</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//失败的例子，在app.vue中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;@/components/playView/playView&#x27;</span></span><br><span class="line">components:&#123;</span><br><span class="line">    playView</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//成功的例子，在main.js中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;./components/playView/playView.vue&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;play-view&#x27;</span>, playView)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>子组件调用父组件的坑，注意这里是@不是: ，这个语法用太少了。。。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//父组件引用子组件,</span></span><br><span class="line">&lt;play-view @hidePlayView=<span class="string">&quot;hidePlayView&quot;</span>&gt;&lt;/play-view&gt;</span><br><span class="line"><span class="comment">//父组件的方法</span></span><br><span class="line">hidePlayView()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$refs.playView.hide()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件内容</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;hide&quot;</span>&gt;hideView&lt;/button&gt;</span><br><span class="line">hide()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$emit(<span class="string">&#x27;hidePlayView&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在vue中使用vuex的问题</p>
-<ul>
-<li>问题，多个组件同时使用了this.$store.song的数据。当A组件使用this.$store.commit更新song的某一个数据后，打印出在this.$store.song的数据却是发生了变化，却没有触发b组件的computed属性。这是为什么？</li>
-<li>最后是通过其他方式解决了这个问题<ul>
-<li>我是想通过监听vuex中song的state的数据变化，实现对index页面下的iac播放器的控制，结果发现当改变了后却没有用，index下的computed监听事件没有变化。因此我后续给组件传入了iac对象解决了这个问题。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>踩坑</tag>
       </tags>
   </entry>
   <entry>
@@ -449,14 +425,174 @@
 </ul>
 <p>浮点数的真值 N = r <sup>E</sup> x  M  (r为阶码的底，一般为2)</p>
 <p>为了让浮点数能存储更多的数据。左规与右规</p>
-<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0835.png" alt="img_0835" style="zoom:25%;">
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0835.png" alt="img_0835" style="zoom: 25%">
 
-<h5 id="电路基本原理"><a href="#电路基本原理" class="headerlink" title="电路基本原理"></a>电路基本原理</h5><ul>
-<li>算术逻辑单元 ALU</li>
+<h5 id="存储系统"><a href="#存储系统" class="headerlink" title="存储系统"></a>存储系统</h5><ul>
+<li><p>存储器与CPU的协同工作</p>
+<ul>
+<li>存储器的简单模型及寻址的概念</li>
+<li>主存与CPU的连接</li>
+<li>双口RAM和多模块存储器</li>
+<li>高速缓冲存储器</li>
+<li>虚拟存储器</li>
 </ul>
-]]></content>
+</li>
+<li><p>半导体存储器</p>
+<ul>
+<li><p>存储芯片的基本结构</p>
+<ul>
+<li><p>存储矩阵：由大量相同的位存储单元阵列构成</p>
+</li>
+<li><p>译码驱动：将来自地址总线的地址信号翻译成对应存储单元的选通信号，该信号在读写电路的配合下完成对被选中单元的读/写操作。</p>
+</li>
+<li><p>读写电路：包括读出放大器和写入电路，用来完成读/写操作</p>
+</li>
+<li><p>读/写控制线：确定哪个存储芯片被选中，可用于容量扩充</p>
+</li>
+<li><p>片选线：确定哪个存储芯片被选中。可用于容量扩充</p>
+</li>
+<li><p>地址线：单向输入，其位数与存储字的个数有关</p>
+</li>
+<li><p>数据线：双向输入，其位数与读出或写入的数据位数有关</p>
+</li>
+<li><p>数据线数和地址线数共同反映存储芯片容量的大小。如地址线10根，数据线8根，则容量=2<sup>10</sup> x 8 = 8K</p>
+</li>
+</ul>
+</li>
+<li><p>SRAM、DRAM的工作原理</p>
+<p>都以电信号的形式存储0/1，断电就丢失信息。易失性存储器</p>
+<ul>
+<li>SRAM常用作Cache，DRAM常用作主存</li>
+<li>DRAM 的三种刷新方式</li>
+</ul>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0838.png" alt="img_0838" style="zoom: 25%">
+</li>
+<li><p>ROM的特点和基本类型</p>
+<p>只读存储器ROM</p>
+</li>
+</ul>
+</li>
+</ul>
+  <img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0839.png" alt="img_0835" style="zoom: 25%">
+
+<ul>
+<li><p>基本概念</p>
+<ul>
+<li>分类</li>
+<li>性能指标<ul>
+<li>存储容量</li>
+<li>单位成本</li>
+<li>存储速度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>主存与CPU的连接</p>
+</li>
+</ul>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0840.png" alt="img_0840" style="zoom: 25%">
+
+<ul>
+<li><p>双口RAM和多模块存储器</p>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0841.png" alt="img_0840" style="zoom: 25%">
+
+</li>
+</ul>
+<h4 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h4><ul>
+<li>空间局部性。未来要用到的信息很可能是现在正在使用的存储空间邻近的信息</li>
+<li>时间局部性，未来用到的信息，很可能现在正使用的信息</li>
+</ul>
+<h4 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h4><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0842.png" alt="img_0842" style="zoom: 25%">
+
+<ul>
+<li><p>Cache的工作原理</p>
+<p>主存的块应当放到Cache的哪个位置，怎样放？</p>
+<ul>
+<li>地址映射方式</li>
+<li><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0843.png" alt="img_0840" style="zoom: 25%">
+
+</li>
+</ul>
+<p>Cache满了怎么办？如何替换</p>
+<ul>
+<li>替换算法</li>
+</ul>
+<p>Cache如何写入数据？</p>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0844.png" alt="img_0840" style="zoom: 25%">
+
+</li>
+</ul>
+<h4 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h4><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0845.png" alt="img_0845" style="zoom: 25%">
+
+<h4 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h4>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
+  </entry>
+  <entry>
+    <title>记uniapp组件坑</title>
+    <url>/2020/09/24/%E8%AE%B0uniapp%E7%BB%84%E4%BB%B6%E5%9D%91/</url>
+    <content><![CDATA[<h4 id="uniapp组件"><a href="#uniapp组件" class="headerlink" title="uniapp组件"></a>uniapp组件</h4><ul>
+<li>引入的坑</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//失败的例子，在app.vue中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;@/components/playView/playView&#x27;</span></span><br><span class="line">components:&#123;</span><br><span class="line">    playView</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//成功的例子，在main.js中</span></span><br><span class="line"><span class="keyword">import</span> playView <span class="keyword">from</span> <span class="string">&#x27;./components/playView/playView.vue&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;play-view&#x27;</span>, playView)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>子组件调用父组件的坑，注意这里是@不是: ，这个语法用太少了。。。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//父组件引用子组件,</span></span><br><span class="line">&lt;play-view @hidePlayView=<span class="string">&quot;hidePlayView&quot;</span>&gt;&lt;/play-view&gt;</span><br><span class="line"><span class="comment">//父组件的方法</span></span><br><span class="line">hidePlayView()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$refs.playView.hide()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件内容</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;hide&quot;</span>&gt;hideView&lt;/button&gt;</span><br><span class="line">hide()&#123;</span><br><span class="line">    <span class="built_in">this</span>.$emit(<span class="string">&#x27;hidePlayView&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在vue中使用vuex的问题</p>
+<ul>
+<li>问题，多个组件同时使用了this.$store.song的数据。当A组件使用this.$store.commit更新song的某一个数据后，打印出在this.$store.song的数据却是发生了变化，却没有触发b组件的computed属性。这是为什么？而当更新song数据的全部属性时，computed发生了变化</li>
+<li>最后是通过其他方式解决了这个问题<ul>
+<li>我是想通过监听vuex中song的state的数据变化，实现对index页面下的iac播放器的控制，结果发现当改变了后却没有用，index下的computed监听事件没有变化。因此我后续给组件传入了iac对象解决了这个问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>全局对象的坑</p>
+<p>uniapp据说有四种全局对象的方式，试了两种</p>
+<ul>
+<li>Vue.prototype  原型对象模式， 在main.js中</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//挂载</span></span><br><span class="line">Vue.prototype.$iac = uni.createInterAudioContext()</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line"><span class="built_in">this</span>.$iac</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>​        在app.vue的全局对象中    </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">globalData:&#123;</span><br><span class="line">			iac:iac</span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//使用，这就是坑啊。需要先引入才能使用</span></span><br><span class="line"><span class="keyword">import</span> app <span class="keyword">from</span> <span class="string">&#x27;../../App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line">app.globalData.iac<span class="comment">//使用</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>computed返回api坑</p>
+<p>遇到一个bug，因为如果在设置当前播放的时间点时，uniapp给的api用computed接收是不管用的。中间试过</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed:&#123;<span class="comment">//监听不到api的变化。nowTime不会实时改变</span></span><br><span class="line">	nowTime()&#123;<span class="keyword">return</span> <span class="built_in">this</span>.iac.currentTime&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//提示nowTime已经被创建</span></span><br><span class="line">computed:&#123;</span><br><span class="line">	nowTime()&#123;</span><br><span class="line">		<span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;<span class="keyword">return</span> <span class="built_in">this</span>.iac.currentTime&#125;, <span class="number">1000</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//最后通过再创建了一个数据实现了，这里遇到了一个坑。我只会用到nowTime2数据。而nowTime我本来是准备不管的。可是如果在Dom上没有nowTime的话，这个computed也不会执行。于是需要使用nowTime。&lt;p style=&quot;display: none;&quot;&gt;&#123;&#123;nowTime&#125;&#125;&lt;/p&gt;把它隐藏掉就可以了</span></span><br><span class="line">computed: &#123;</span><br><span class="line">	nowTime()&#123;</span><br><span class="line">		<span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">			<span class="comment">// console.log(this.iac)</span></span><br><span class="line">			<span class="built_in">this</span>.nowTime2 = <span class="built_in">this</span>.iac.currentTime</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">&#x27;chufale&#x27;</span>)</span><br><span class="line">		&#125;, <span class="number">1000</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Vue组件获取不到offset？</p>
+<ul>
+<li>因为我是用api控制的播放器播放，所以下方的进度条也是我模拟的，这个进度条并不支持拖动返回当前百分比的操作，于是我准备自己写一个。那么问题就出现在这了。<ul>
+<li>想法：进度条我只要知道最左点和最右点的位置。然后再获取用户触摸的点位置。不就能轻易的定位了？</li>
+<li>实行：事实上是可以做的，但是需要解决一个问题。每个用户手机肯定不能是完全一样的。必须在每次组件创建后获取到进度条相对于屏幕的位置。这样应该就可以了</li>
+<li>开始准备用ref绑定元素，可是打印了Vue component后没有看到任何关于屏幕偏移量的属性。网络上搜索了一圈也没有看到。最后不得已使用了js原生方法getBoundingClientRect()</li>
+<li>最后获取的点击位置没有减去左偏移量，每次都多了一段，笑了。不过还是 很快发现并解决啦</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onReady()&#123;</span><br><span class="line"><span class="built_in">this</span>.progressLeft=<span class="built_in">document</span>.querySelector(<span class="string">&#x27;.cmd-progress-inner&#x27;</span>).getBoundingClientRect().left,</span><br><span class="line"><span class="built_in">this</span>.progressRight=<span class="built_in">document</span>.querySelector(<span class="string">&#x27;.cmd-progress-inner&#x27;</span>).getBoundingClientRect().right	 </span><br><span class="line">&#125;</span><br><span class="line">move(e)&#123;</span><br><span class="line">    <span class="built_in">this</span>.nowTime2 = (e.detail.x - <span class="built_in">this</span>.progressLeft)/(<span class="built_in">this</span>.progressRight-						<span class="built_in">this</span>.progressLeft)*<span class="built_in">this</span>.allTime</span><br><span class="line">    <span class="built_in">this</span>.iac.seek(<span class="built_in">this</span>.nowTime2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>踩坑</tag>
+      </tags>
   </entry>
 </search>
