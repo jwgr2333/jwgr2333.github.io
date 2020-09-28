@@ -19,16 +19,21 @@
       </tags>
   </entry>
   <entry>
-    <title>first article</title>
+    <title>如何生成一个自己的hexo博客</title>
     <url>/2020/09/08/first-article/</url>
-    <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下npm -v , node -v。如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
-<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>创建一个blog文件夹并进入，当然，起名可以无所谓。使用hexo init 初始化。等待完成后，hexo s 启动服务。这样你就拥有了一个最初的模板了。</p>
+    <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下，在文件夹里面按住shift点击鼠标右键打开powershell窗口输入npm -v , node -v查看版本。如果报错，可能是你还没有开放权限</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、以管理员权限运行 Windows PowerShell</span><br><span class="line"><span class="number">2</span>、输入如下命令：</span><br><span class="line">set-ExecutionPolicy RemoteSigned</span><br><span class="line"><span class="number">3</span>、根据提示输入A</span><br></pre></td></tr></table></figure>
+
+<p>如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//鉴于大家可能没有使用过npm，建议把地址修改一下</span></span><br><span class="line">npm config set registry https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line"><span class="comment">//输入以下代码查看当前默认站点。如果是taobao就成功了</span></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>创建一个blog文件夹并进入，当然，起名可以无所谓。在这里打开powershell窗口，使用hexo init 初始化。等待完成后，hexo s 启动服务。这样你就拥有了一个最初的模板了。</p>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>显然，我们不可能只在本地使用，那就直接搞md算了，何必用hexo。为了把我们的博客部署到github上，我们需要在主目录下 npm i -S hexo-deployer-git 安装这个插件帮助我们。接下来，修改一下主目录的_config.yml文件的deploy属性如图</p>
 <p><img src="https://jwgr2333.github.io/imgs/image-20200908201329857.png" alt="image-20200908201329857"></p>
 <p>注意空格，同时在github需要创建一个仓库，取名一定是username.github.io  参照我的。随后使用命令，</p>
-<p>hexo clean,hexo g, hexo d 就完成了往github的上传。这时，在浏览器输入 <a href="https://username.github.io/">https://username.github.io</a> 就可以看到啦。</p>
+<p>hexo clean,hexo g, hexo d 就完成了往github的上传。这时，在浏览器输入 <a href="https://username.github.io/">https://username.github.io</a> 就可以看到啦（需要等待一小会儿）。</p>
 <p><font color="red">此外，有一些配置也是可以改的，比如title, languages, 等 如果是部署到个人的云服务器上的话可能需要修改URL，我是在github上所以可以暂时不用改</font></p>
-<h2 id="主题theme"><a href="#主题theme" class="headerlink" title="主题theme"></a>主题theme</h2><p>当我们在完成以上的操作后，我们就拥有的自己的一个博客。但是这个博客的功能还是比较简陋的，为了方便，我们可以借用他人开源的一些基于hexo的主题帮助我们更好的装饰我们的博客。这里我使用的是butterfly。</p>
+<h2 id="主题theme"><a href="#主题theme" class="headerlink" title="主题theme"></a>主题theme</h2><p>当我们在完成以上的操作后，我们就拥有的自己的一个博客。但是这个博客的功能还是比较简陋的，为了方便，我们可以借用他人开源的一些基于hexo的主题帮助我们更好的装饰我们的博客。这里我使用的是butterfly。注意，如果没有安装git的话是需要安装git并配置一下用户名和email的。此外，也需要一个GitHub帐号。</p>
 <p>github地址: <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>  没事去点个star吧，确实好用~</p>
 <ul>
 <li><p>安装</p>
@@ -64,9 +69,9 @@
 <ul>
 <li><p>categories、tags功能的实现</p>
 <p>在我们把menu搞定之后，虽然出现了一排menu，可是我们却点击不了。这是因为我们还没有这个页面呀，我们可以通过</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &lt;pagename&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &#39;pagename&#39;</span><br></pre></td></tr></table></figure>
 
-<p>创建页面，如 hexo new page tags。以此类推我们可以创建categories， messageboard等。创建出来后我们是可以不用管创建出的文件的。我们需要做的是在新建的hexo new ‘new article’中把tags、categories写上即可。</p>
+<p>创建页面，这个创建的是页面，名字与上面menu是对应的，你可以继续如 hexo new page tags。以此类推我们可以创建categories， messageboard等把你需要的页面都创建出来。创建出来后我们是可以不用管创建出的文件的。我们需要做的是在新建的hexo new ‘new article’中把tags、categories写上即可。</p>
 <p><img src="https://jwgr2333.github.io/imgs/image-20200908210251643.png" alt="image-20200908210251643"></p>
 </li>
 </ul>
@@ -87,8 +92,8 @@
 <p><font color="red">在设置评论时，同时发现了一个问题，即不只是在messageboard下有评论框，在categories、tags下面都有。只需要在创建的index页面下加入这个即可</font></p>
 <pre><code>comments: false</code></pre>
 <p><img src="https://jwgr2333.github.io/imgs/image-20200909200350809.png" alt="image"></p>
+<h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>​    推荐使用hexo-asset-image插件。 在主目录使用 npm install <a href="https://github.com/CodeFalling/hexo-asset-image">https://github.com/CodeFalling/hexo-asset-image</a> – save。安装完成后使用hexo new ‘page’的时候回生成一个同名页面。把图片先放进去再引入即可，</p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>暂时就写到这里吧，还有东西是我没有完善的。比如友链、music、videos、线上管理等。日后有时间可以继续完善吧~ 今天先做到这里。不得不说，hexo是一个非常优秀的博客框架。采用Markdown简直不要太方便。对我来说友好度爆棚。。而且用户庞大，意味着可以踩着前人的肩膀上前进。非常感谢先驱者的付出.</p>
-<h2 id="BUG"><a href="#BUG" class="headerlink" title="BUG"></a>BUG</h2><p>本地图片显示不出来，改用相对路径也无法显示。（个人采用的是把本地的图片复制到imgs文件夹中一起上传到后台，然后通过github下的链接引用，如：<a href="https://jwgr2333.github.io/imgs/image-20200908211034230.png%EF%BC%89%E3%80%82%E8%BF%99%E6%A0%B7%E5%B0%B1%E4%B8%8D%E4%BC%9A%E6%9C%89%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%E4%BA%86%E3%80%82">https://jwgr2333.github.io/imgs/image-20200908211034230.png）。这样就不会有图片显示的问题了。</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>作者：<a href="https://github.com/jerryc127">jerryc127</a>，github链接：<a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a><br>作者：<a href="https://me.csdn.net/weixin_43350051">XJHui’s Blog</a>，文章链接：<a href="https://blog.csdn.net/weixin_43350051/article/details/104923503">https://blog.csdn.net/weixin_43350051/article/details/104923503</a></p>
 ]]></content>
       <categories>
@@ -229,6 +234,25 @@
       <tags>
         <tag>笔记</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>歌词解析</title>
+    <url>/2020/09/28/%E6%AD%8C%E8%AF%8D%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>不务正业中。。基础没打好天天搞这些花里胡哨的。确实应该再打好基础。</p>
+<p>可是光看书和视频实在太枯燥了。每天给自己点时间写写页面也还挺开心的。</p>
+<p>那么我们的uniapp网易云已经进行到了播放界面。光实现唱片效果显然不太够呀。歌词显示不能没有！！本着我可以不看但是你不能没有的原则。奥利给干了，兄弟们</p>
+<p>那么我们看一下后台api发过来的歌词</p>
+<p><image src="./Snipaste_2020-09-28_11-29-04.png"></image></p>
+<p>一坨字符串，意料之中。</p>
+<p>我的目的是把它解析成这样的样子</p>
+<p><image src="./Snipaste_2020-09-28_11-32-30.png"></image></p>
+<p>直接上代码吧</p>
+<p>​    我是采用的原生ajax获取歌词文件，重点是处理歌词的思路。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lrc = []</span><br><span class="line">       <span class="keyword">var</span> lyric = <span class="literal">null</span></span><br><span class="line">       <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">       <span class="comment">//这个是把后台部署到我自己的服务器上了。</span></span><br><span class="line">       xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;http://119.3.174.206:3000/lyric?id=528326686&#x27;</span>)</span><br><span class="line">       xhr.send()</span><br><span class="line">       xhr.onload = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">           <span class="comment">//获取到了歌词对象</span></span><br><span class="line">           <span class="keyword">const</span> res = <span class="built_in">JSON</span>.parse(xhr.response)</span><br><span class="line">           <span class="comment">//console.log(res.lrc.lyric)</span></span><br><span class="line">           <span class="comment">//用正则对歌词分隔</span></span><br><span class="line">           lyric = res.lrc.lyric.split(<span class="regexp">/\n/</span>)</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; lyric.length; i++)&#123;</span><br><span class="line">               <span class="keyword">let</span> lrcObj = &#123;</span><br><span class="line">                   time: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">                   lrc: <span class="string">&#x27;&#x27;</span></span><br><span class="line">               &#125;</span><br><span class="line">               lrcObj.time = lyric[i].slice(<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">               lrcObj.lrc = lyric[i].slice(<span class="number">11</span>,lyric.length<span class="number">-1</span>)</span><br><span class="line">               lrc.push(lrcObj)	</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">console</span>.log(lrc)</span><br><span class="line">       &#125; </span><br></pre></td></tr></table></figure>
+
+<p><font color="skyblue"> 注意：这个是针对我当前的歌词类型解析的，实际应该是不能通用的。但是能够满足我的当前需求 。后续我会在复习基础时用正则做一次</font></p>
+<p>渲染歌词到页面上</p>
+]]></content>
   </entry>
   <entry>
     <title>计算机组成原理笔记</title>
@@ -524,7 +548,28 @@
 </ul>
 <h4 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h4><img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0845.png" alt="img_0845" style="zoom: 25%">
 
-<h4 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h4>]]></content>
+<h4 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h4><ul>
+<li><p>数据存放</p>
+<p>  寻址，给出一个字地址，可以取出长度为一个字的数据，</p>
+<p>   数据存储的方式分为大、小端模式。</p>
+</li>
+<li><p>指令寻址</p>
+<p>定位指令的地址，顺序寻址、跳跃寻址。基于寄存器程序计数器PC</p>
+</li>
+<li><p>数据寻址</p>
+<p>确定指令的操作地址</p>
+<img src="/2020/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/img_0846.png" alt="img_0845" style="zoom: 25%">
+</li>
+<li><p>操作数类型</p>
+<ul>
+<li>地址  无符号数</li>
+<li>数字</li>
+<li>字符</li>
+<li>逻辑数</li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>笔记</category>
       </categories>
