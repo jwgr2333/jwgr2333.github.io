@@ -20,21 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js学习随手</title>
-    <url>/2020/10/08/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h4><p>一直以来都比较迷惑，在js方法中的值传递与引用传递的区别，看个例子</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    sum = sum + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">sum(a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;a的值为&quot;</span>,a);<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
-
-<p>上述例子是很明显的值传递，传递到函数中的只有值（10），所以对num进行操作不会印象到外面的a，但是下面这个例子</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.name = <span class="string">&quot;xx&quot;</span>;</span><br><span class="line">;&#125;</span><br><span class="line"><span class="keyword">var</span> object = &#123;&#125;;</span><br><span class="line">setName(object);</span><br><span class="line"><span class="built_in">console</span>.log(object);<span class="comment">//&#123;name: &quot;xx&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>??，如果是值传递为什么这个对象的值会改变呢？如果是引用传递那么下面这个Object的值为什么不是{}？</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.name = <span class="string">&quot;xx&quot;</span>;</span><br><span class="line">    obj = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> object = &#123;&#125;;</span><br><span class="line">setName(object);</span><br><span class="line"><span class="built_in">console</span>.log(object);<span class="comment">//&#123;name: &quot;xx&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>这个问题困扰我许久，先说结论：<font color="red">ECMAScript中所有函数的参数都是按值传递的</font>，造成这一现象的原因是 <font color="red">在传递对象时，即使这个变量是按值传递的，obj也会按照引用来访问同一个对象</font>。在最后一个例子的函数中把{}赋值给obj，就是把一个新的对象赋值给了obj，这表示把另外一个对象（空对象）的引用给了obj。已经与传递的object没有任何关系了</p>
-]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/2020/02/10/git/</url>
     <content><![CDATA[<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ul>
@@ -91,6 +76,29 @@
       <tags>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>js学习随手</title>
+    <url>/2020/10/08/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h4><p>一直以来都比较迷惑，在js方法中的值传递与引用传递的区别，看个例子</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    sum = sum + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">sum(a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;a的值为&quot;</span>,a);<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+
+<p>上述例子是很明显的值传递，传递到函数中的只有值（10），所以对num进行操作不会印象到外面的a，但是下面这个例子</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.name = <span class="string">&quot;xx&quot;</span>;</span><br><span class="line">;&#125;</span><br><span class="line"><span class="keyword">var</span> object = &#123;&#125;;</span><br><span class="line">setName(object);</span><br><span class="line"><span class="built_in">console</span>.log(object);<span class="comment">//&#123;name: &quot;xx&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>??，如果是值传递为什么这个对象的值会改变呢？如果是引用传递那么下面这个Object的值为什么不是{}？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.name = <span class="string">&quot;xx&quot;</span>;</span><br><span class="line">    obj = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> object = &#123;&#125;;</span><br><span class="line">setName(object);</span><br><span class="line"><span class="built_in">console</span>.log(object);<span class="comment">//&#123;name: &quot;xx&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个问题困扰我许久，先说结论：<font color="red">ECMAScript中所有函数的参数都是按值传递的</font>，造成这一现象的原因是 <font color="red">在传递对象时，即使这个变量是按值传递的，obj也会按照引用来访问同一个对象</font>。在最后一个例子的函数中把{}赋值给obj，就是把一个新的对象赋值给了obj，这表示把另外一个对象（空对象）的引用给了obj。已经与传递的object没有任何关系了</p>
+<h4 id="数组的length"><a href="#数组的length" class="headerlink" title="数组的length"></a>数组的length</h4><p>刚刚才发现，原来数组的长度arr.length。并不是一个只读属性，可以对它赋值的！！也就是说，如果想让数组尾部删除只需要</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.length = arr.length - <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>以前我都是用slice函数这样做的，这让我比较好奇谁的性能更好呢，虽然感觉是length-1，但是测试看看吧</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++)&#123;</span><br><span class="line">        arr.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// for(let i = 0; i &lt; 999999; i++)&#123;</span></span><br><span class="line">    <span class="comment">//     arr.length = arr.length - 1;//72ms</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">999999</span>; i++)&#123;</span><br><span class="line">        arr = arr.slice(<span class="number">0</span>,arr.length<span class="number">-1</span>);<span class="comment">//直接超时了</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(arr);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//其实不用测试，看slice原码</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice=<span class="function"><span class="keyword">function</span>(<span class="params">start,end</span>)</span>&#123;  <span class="comment">//ES5 中的数组方法slice的底层内部实现</span></span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">//新数组</span></span><br><span class="line">    <span class="keyword">var</span> start = start || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> end = end || <span class="built_in">this</span>.length; <span class="comment">//this指向调用的对象，用了call之后，改变this的指向，指向传进来的对象</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=start; i&lt;end; i++)&#123;</span><br><span class="line">        result.push(<span class="built_in">this</span>[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;	<span class="comment">//返回的为一个新的数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
   <entry>
     <title>vscode配置c++/java开发环境</title>
@@ -176,6 +184,53 @@
 ]]></content>
   </entry>
   <entry>
+    <title>js面试手写代码</title>
+    <url>/2020/10/10/js%E9%9D%A2%E8%AF%95%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<ol>
+<li><p>数组扁平化</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,[<span class="number">2</span>,[<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>]]],<span class="number">6</span>];</span><br><span class="line"><span class="comment">//使用flat</span></span><br><span class="line"><span class="keyword">const</span> res = arr.flat(<span class="literal">Infinity</span>);</span><br><span class="line"><span class="comment">//利用正则</span></span><br><span class="line"><span class="keyword">const</span> res2 = <span class="built_in">JSON</span>.stringify(arr).replace(<span class="regexp">/\[|\]/g</span>, <span class="string">&#x27;&#x27;</span>.split(<span class="string">&#x27;,&#x27;</span>));</span><br><span class="line"><span class="comment">//正则二</span></span><br><span class="line"><span class="keyword">const</span> res3 = <span class="built_in">JSON</span>.parse(<span class="string">&#x27;[&#x27;</span>+<span class="built_in">JSON</span>.stringify(arr).replace(<span class="regexp">/\[|\]/g</span>, <span class="string">&#x27;&#x27;</span>)+<span class="string">&#x27;]&#x27;</span>);</span><br><span class="line"><span class="comment">//递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> = <span class="title">arr</span> =&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr2 = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr[i])) &#123;</span><br><span class="line">            fn(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          arr2.push(arr[i]);  </span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> res5;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> res5 = fn(arr);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>数组去重</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;1&#x27;</span>, <span class="number">17</span>, <span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="string">&#x27;true&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, &#123;&#125;, []];</span><br><span class="line"><span class="comment">//利用set</span></span><br><span class="line"><span class="keyword">const</span> res = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr));</span><br><span class="line"><span class="comment">//两层for</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] === arr[j]) &#123;</span><br><span class="line">                arr.splice(j, <span class="number">1</span>);</span><br><span class="line">            	len--;</span><br><span class="line">            	j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//利用indexOf</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(res.indexOf(arr[i]) === <span class="number">-1</span>) res.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>类数组转化为数组</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//利用Array.from</span></span><br><span class="line"><span class="keyword">const</span> res1 = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectAll(<span class="string">&#x27;div&#x27;</span>));</span><br><span class="line"><span class="comment">//Array.prototype.slice.call()</span></span><br><span class="line"><span class="keyword">const</span> res2 = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.querySelectAll(<span class="string">&#x27;div&#x27;</span>));</span><br><span class="line"><span class="comment">//扩展运算符</span></span><br><span class="line"><span class="keyword">const</span> res3 = [...document.querySelectAll(<span class="string">&#x27;div&#x27;</span>)];</span><br><span class="line"><span class="comment">//concat</span></span><br><span class="line"><span class="keyword">const</span> res4 = <span class="built_in">Array</span>.prototype.concat.apply([], ocument.querySelectAll(<span class="string">&#x27;div&#x27;</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Array.prototype.filter()</p>
+</li>
+<li><p>Array.prototype.map()</p>
+</li>
+<li><p>Array.prototype.forEach()</p>
+</li>
+<li><p>Array.prototype.reduce()</p>
+</li>
+<li><p>Function.prototype.apply()</p>
+</li>
+<li><p>Function.prototype.call()</p>
+</li>
+<li><p>Function.prototype.bind()</p>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>主流浏览器及内核</title>
+    <url>/2020/10/14/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8A%E5%86%85%E6%A0%B8/</url>
+    <content><![CDATA[<p>任何上过网的用户对浏览器是再熟悉不过了。只是用户看到仅仅只是浏览器本身，却很少能看到浏览器最核心的部分—浏览器内核。从第一款libwww（Library WorldWideWeb）浏览器发展至今已经经历了无数竞争与淘汰了。现在国内常见的浏览器有：IE、Firefox、QQ浏览器、Safari、Opera、Google Chrome、百度浏览器、搜狗浏览器、猎豹浏览器、360浏览器、UC浏览器、遨游浏览器、世界之窗浏览器等。但目前最为主流浏览器有五大款，分别是IE、Firefox、Google Chrome、Safari、Opera。<br>浏览器最重要的部分是浏览器的内核。浏览器内核是浏览器的核心，也称“渲染引擎”，用来解释网页语法并渲染到网页上。浏览器内核决定了浏览器该如何显示网页内容以及页面的格式信息。不同的浏览器内核对网页的语法解释也不同，因此网页开发者需要在不同内核的浏览器中测试网页的渲染效果。<br>简单介绍一下五大主流浏览器。（按时间顺序）<br>1、IE浏览器：<br>IE是微软公司旗下浏览器，是目国内用户量最多的浏览器。IE诞生于1994年，当时微软为了对抗市场份额占据将近百分之九十的网景Netscape Navigator，于是在Windows中开发了自己的浏览器Internet Explorer，自此也引发了第一次浏览器大战。结果可想而知，微软大获全胜，网景不得不将自己卖给AOL公司。但实际上事情并没有结束，网景后来开发了风靡一时的Firefox火狐，至今Firefox也成为世界五大浏览器之一。<br>1996年，微软从Spyglass手里拿到Spyglass Mosaic的源代码和授权，开始开发自己的浏览器IE。后来，微软以IE和Windows捆绑的模式不断向市场扩展份额，使IE成为市场的绝对主流。现在装了Windows系统的电脑基本无法卸载IE。<br>2、Opera浏览器：<br>Opera是挪威Opera Software ASA公司旗下的浏览器。1995年，opera公司发布第一版Opera浏览器，使用自己研发的Presto内核。当时opera公司的开发团队不断完善Presto内核，使Opera浏览器一度成为顶级浏览器。直到2016年奇虎360和昆仑万维收购了Oprea浏览器，从此也丢弃了强大的Presto内核，改用当时Google开源的webkit内核。后来Opera浏览器跟随Google将浏览器内核改为Blink内核。自此Presto内核也淡出了互联网市场。<br>3、Safari浏览器：<br>第二次浏览器大战是从苹果公司发布Safari浏览器开始的。2003年，苹果公司在苹果手机上开发Safari浏览器，利用自己得天独厚的手机市场份额使Safari浏览器迅速成为世界主流浏览器。Safari是最早使用webkit内核的浏览器也是现在苹果默认的浏览器。<br>4、Firefox浏览器：<br>Firefox浏览器使Mozilla公司旗下浏览器，也是刚才提到的网景公司后来的浏览器。网景被收购后，网景人员创办了Mozilla基金会，这是一个非盈利组织，他们在2004年推出自己的浏览器Firefox。Firefox采用Gecko作为内核。Gecko是一个开源的项目，代码完全公开，因此受到很多人的青睐。Firefox的问世加快了第二次浏览器大战的开始。第二次浏览器大战与第一次二元鼎力的局面不同，这一次的特点就是百家争鸣，也自此打破了IE浏览器从98年网景被收购后独步浏览器市场的局面。<br>5、Chrome浏览器：<br>Chrome浏览器是google旗下的浏览器。Chrome浏览器至发布以来一直讲究简洁、快速、安全，所以Chrome浏览器到现在一直受人追捧。最开始Chrome采用webkit作为浏览器内核，直到2013年，google宣布不再使用苹果的webkit内核，开始使用webkit的分支内核Blink。</p>
+<p>以上是五大浏览器的简介，接下来是四大内核。在介绍五大浏览器的同时也已经顺便介绍了四大内核。四大内核分别是：Trident（也称IE内核）、webkit、Blink、Gecko。五大浏览器采用的都是单内核，而随着浏览器的发展现在也出现了双内核。像360浏览器、QQ浏览器都是采用双内核。<br>作为前端开发，熟悉四大内核是非常有必要的。四大内核的解析不同使网页渲染效果更具多样化。下面总结一下各常用浏览器所使用的内核。<br>1、IE浏览器内核：Trident内核，也是俗称的IE内核；<br>2、Chrome浏览器内核：统称为Chromium内核或Chrome内核，以前是Webkit内核，现在是Blink内核；<br>3、Firefox浏览器内核：Gecko内核，俗称Firefox内核；<br>4、Safari浏览器内核：Webkit内核；<br>5、Opera浏览器内核：最初是自己的Presto内核，后来是Webkit，现在是Blink内核；<br>6、360浏览器、猎豹浏览器内核：IE+Chrome双内核；<br>7、搜狗、遨游、QQ浏览器内核：Trident（兼容模式）+Webkit（高速模式）；<br>8、百度浏览器、世界之窗内核：IE内核；<br>9、2345浏览器内核：以前是IE内核，现在也是IE+Chrome双内核；</p>
+<p>写这篇文章主要是因为自己在前端开发过程常遇到浏览器兼容问题，以后有时间要对不同内核浏览器渲染效果的区别做一下总结。这是对不同浏览器和内核的总结，希望对大家有帮助。</p>
+<p>转自<a href="https://blog.csdn.net/yuyanjing123456789/article/details/78689595">csdn,kookic</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>吐槽200910</title>
     <url>/2020/09/10/%E5%90%90%E6%A7%BD200910/</url>
     <content><![CDATA[<h5 id="吐槽黄色衣服的小哥"><a href="#吐槽黄色衣服的小哥" class="headerlink" title="吐槽黄色衣服的小哥"></a>吐槽黄色衣服的小哥</h5><ul>
@@ -196,91 +251,6 @@
       </categories>
       <tags>
         <tag>理发店</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何生成一个自己的hexo博客</title>
-    <url>/2020/09/08/%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下，在文件夹里面按住shift点击鼠标右键打开powershell窗口输入npm -v , node -v查看版本。如果报错，可能是你还没有开放权限</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、以管理员权限运行 Windows PowerShell</span><br><span class="line"><span class="number">2</span>、输入如下命令：</span><br><span class="line">set-ExecutionPolicy RemoteSigned</span><br><span class="line"><span class="number">3</span>、根据提示输入A</span><br></pre></td></tr></table></figure>
-
-<p>如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//鉴于大家可能没有使用过npm，建议把地址修改一下</span></span><br><span class="line">npm config set registry https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line"><span class="comment">//输入以下代码查看当前默认站点。如果是taobao就成功了</span></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-
-<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>创建一个blog文件夹并进入，当然，起名可以无所谓。在这里打开powershell窗口，使用hexo init 初始化。等待完成后，hexo s 启动服务。这样你就拥有了一个最初的模板了。</p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>显然，我们不可能只在本地使用，那就直接搞md算了，何必用hexo。为了把我们的博客部署到github上，我们需要在主目录下 npm i -S hexo-deployer-git 安装这个插件帮助我们。接下来，修改一下主目录的_config.yml文件的deploy属性如图</p>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908201329857.png" alt="image-20200908201329857"></p>
-<p>注意空格，同时在github需要创建一个仓库，取名一定是username.github.io  参照我的。随后使用命令，</p>
-<p>hexo clean,hexo g, hexo d 就完成了往github的上传。这时，在浏览器输入 <a href="https://username.github.io/">https://username.github.io</a> 就可以看到啦（需要等待一小会儿）。</p>
-<p><font color="red">此外，有一些配置也是可以改的，比如title, languages, 等 如果是部署到个人的云服务器上的话可能需要修改URL，我是在github上所以可以暂时不用改</font></p>
-<h2 id="主题theme"><a href="#主题theme" class="headerlink" title="主题theme"></a>主题theme</h2><p>当我们在完成以上的操作后，我们就拥有的自己的一个博客。但是这个博客的功能还是比较简陋的，为了方便，我们可以借用他人开源的一些基于hexo的主题帮助我们更好的装饰我们的博客。这里我使用的是butterfly。注意，如果没有安装git的话是需要安装git并配置一下用户名和email的。此外，也需要一个GitHub帐号。</p>
-<p>github地址: <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>  没事去点个star吧，确实好用~</p>
-<ul>
-<li><p>安装</p>
-<p>安装也比较简单，在主文件夹克隆一下butterfly到themes目录下的butterfly文件夹</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone -b master https:&#x2F;&#x2F;github.com&#x2F;jerryc127&#x2F;hexo-theme-butterfly.git themes&#x2F;butterfly</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-<p>修改主目录下的_config.yml文件的theme属性为butterfly，如图_。理论上其他主题可能也可以这样改。当然我只是猜测~</p>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908202410942.png" alt="image-20200908202410942"></p>
-<p>如果没有pug &amp; stylus renderer,作者也说了，需要这个.那我们就可以安装一下，因为已经安装了node，所以只需要在命令行操作即可    </p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>测试</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean, hexo g, hexo s &#x2F;&#x2F;看看效果</span><br></pre></td></tr></table></figure>
-
-<p>理论上已经可以看到自己的博客啦，如果对这个主题不太满意，可以去看看别的主题。总有一款适合你~</p>
-</li>
-</ul>
-<h2 id="功能完善"><a href="#功能完善" class="headerlink" title="功能完善"></a>功能完善</h2><p>做完前面的工作之后，发现可能还是不能满足我的要求，着实有点素。于是我开始了个性化定制~ 这个时候就遇到了一些困难。可能版本不同，网络上先行者的建议与我的还是有点出入。于是，我开始自己查看目录。在butterfly的source目录下出现了_config.yml配置文件。这个文件可能是与主目录下的_config.yml文件合并或覆盖的。因此，修改此文件应该可以解决我们的问题。</p>
-<ul>
-<li><p>menu</p>
-<p>刚打开时menu是被注释掉的，显然，menu还是需要的，我们取消注释并稍微修改一下，注意！！我们修改的时候可以 hexo s 把项目运行起来，这样我们能及时补救错误</p>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908204113865.png" alt="image-20200908204113865"></p>
-</li>
-<li><p>Image设置</p>
-<p>图片在代码中都有详细的提示，这里我就不过多说了，是选择删掉原图替换还是找网图都是可以的</p>
-</li>
-</ul>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908205136691.png" alt="image-20200908205136691"></p>
-<ul>
-<li><p>categories、tags功能的实现</p>
-<p>在我们把menu搞定之后，虽然出现了一排menu，可是我们却点击不了。这是因为我们还没有这个页面呀，我们可以通过</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &#39;pagename&#39;</span><br></pre></td></tr></table></figure>
-
-<p>创建页面，这个创建的是页面，名字与上面menu是对应的，你可以继续如 hexo new page tags。以此类推我们可以创建categories， messageboard等把你需要的页面都创建出来。创建出来后我们是可以不用管创建出的文件的。我们需要做的是在新建的hexo new ‘new article’中把tags、categories写上即可。</p>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908210251643.png" alt="image-20200908210251643"></p>
-</li>
-</ul>
-<ul>
-<li><p>comment功能的实现，要实现评论功能，我们这里借助的是Valine，需要</p>
-<ul>
-<li><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signin">LeanCloud</a></p>
-</li>
-<li><p>创建应用：选择开发板即可。创建完成后进入应用keys，复制AppId、AppKey。粘贴到</p>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908211005945.png" alt="image-20200908211005945"></p>
-<p>注意，在这一行需要把comments下的Valine加上，当然你也可以用其他的。这里就相应的修改</p>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200908211034230.png" alt="image-20200908211034230"></p>
-</li>
-</ul>
-</li>
-</ul>
-<p>然后还有字数统计、特效等功能，只要你想开都是可以的。因为作者是香港人，所以有中文提示，按照提示来就完事了。</p>
-<p><font color="red">在设置评论时，同时发现了一个问题，即不只是在messageboard下有评论框，在categories、tags下面都有。只需要在创建的index页面下加入这个即可</font></p>
-<pre><code>comments: false</code></pre>
-<p><img src="https://jwgr2333.github.io/imgs/image-20200909200350809.png" alt="image"></p>
-<h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>​    推荐使用hexo-asset-image插件。 在主目录使用 npm install <a href="https://github.com/CodeFalling/hexo-asset-image">https://github.com/CodeFalling/hexo-asset-image</a> – save。安装完成后使用hexo new ‘page’的时候回生成一个同名页面。把图片先放进去再引入即可，</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>暂时就写到这里吧，还有东西是我没有完善的。比如友链、music、videos、线上管理等。日后有时间可以继续完善吧~ 今天先做到这里。不得不说，hexo是一个非常优秀的博客框架。采用Markdown简直不要太方便。对我来说友好度爆棚。。而且用户庞大，意味着可以踩着前人的肩膀上前进。非常感谢先驱者的付出.</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>作者：<a href="https://github.com/jerryc127">jerryc127</a>，github链接：<a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a><br>作者：<a href="https://me.csdn.net/weixin_43350051">XJHui’s Blog</a>，文章链接：<a href="https://blog.csdn.net/weixin_43350051/article/details/104923503">https://blog.csdn.net/weixin_43350051/article/details/104923503</a></p>
-]]></content>
-      <categories>
-        <category>blog build</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -445,12 +415,193 @@
 </ul>
 </li>
 </ul>
-<h4 id="线程与多线程模型"><a href="#线程与多线程模型" class="headerlink" title="线程与多线程模型"></a>线程与多线程模型</h4><h4 id="处理机调度的概念、层次"><a href="#处理机调度的概念、层次" class="headerlink" title="处理机调度的概念、层次"></a>处理机调度的概念、层次</h4><h4 id="进程调度的时机、切换与过程、方式"><a href="#进程调度的时机、切换与过程、方式" class="headerlink" title="进程调度的时机、切换与过程、方式"></a>进程调度的时机、切换与过程、方式</h4><h4 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h4><h4 id="FCFS、SJF、HRRN调度算法"><a href="#FCFS、SJF、HRRN调度算法" class="headerlink" title="FCFS、SJF、HRRN调度算法"></a>FCFS、SJF、HRRN调度算法</h4><h4 id="调度算法；时间片轮转、优先级、多级反馈队列"><a href="#调度算法；时间片轮转、优先级、多级反馈队列" class="headerlink" title="调度算法；时间片轮转、优先级、多级反馈队列"></a>调度算法；时间片轮转、优先级、多级反馈队列</h4><h4 id="进程同步、进程互斥"><a href="#进程同步、进程互斥" class="headerlink" title="进程同步、进程互斥"></a>进程同步、进程互斥</h4><h4 id="进程互斥的软件实现方法"><a href="#进程互斥的软件实现方法" class="headerlink" title="进程互斥的软件实现方法"></a>进程互斥的软件实现方法</h4><h4 id="进程互斥的硬件实现方法"><a href="#进程互斥的硬件实现方法" class="headerlink" title="进程互斥的硬件实现方法"></a>进程互斥的硬件实现方法</h4><h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h4 id="用信号量实现进程互斥、同步、前驱关系"><a href="#用信号量实现进程互斥、同步、前驱关系" class="headerlink" title="用信号量实现进程互斥、同步、前驱关系"></a>用信号量实现进程互斥、同步、前驱关系</h4><h4 id="生产者、消费者问题"><a href="#生产者、消费者问题" class="headerlink" title="生产者、消费者问题"></a>生产者、消费者问题</h4><h4 id="多生产者，消费者问题"><a href="#多生产者，消费者问题" class="headerlink" title="多生产者，消费者问题"></a>多生产者，消费者问题</h4><h4 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h4><h4 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h4><h4 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h4><h4 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h4><h4 id="死锁的概念"><a href="#死锁的概念" class="headerlink" title="死锁的概念"></a>死锁的概念</h4><h4 id="死锁的处理策略-预防和解除"><a href="#死锁的处理策略-预防和解除" class="headerlink" title="死锁的处理策略-预防和解除"></a>死锁的处理策略-预防和解除</h4><h4 id="死锁的处理策略-如何避免死锁"><a href="#死锁的处理策略-如何避免死锁" class="headerlink" title="死锁的处理策略-如何避免死锁"></a>死锁的处理策略-如何避免死锁</h4><h4 id="死锁的处理策略-检测和解除"><a href="#死锁的处理策略-检测和解除" class="headerlink" title="死锁的处理策略-检测和解除"></a>死锁的处理策略-检测和解除</h4><h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h4 id="内存基础知识"><a href="#内存基础知识" class="headerlink" title="内存基础知识"></a>内存基础知识</h4><h4 id="内存管理的概念"><a href="#内存管理的概念" class="headerlink" title="内存管理的概念"></a>内存管理的概念</h4><h4 id="覆盖与交换"><a href="#覆盖与交换" class="headerlink" title="覆盖与交换"></a>覆盖与交换</h4><h4 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h4><h4 id="动态分区分配算法"><a href="#动态分区分配算法" class="headerlink" title="动态分区分配算法"></a>动态分区分配算法</h4><h4 id="基本分页存储管理的基本概念"><a href="#基本分页存储管理的基本概念" class="headerlink" title="基本分页存储管理的基本概念"></a>基本分页存储管理的基本概念</h4><h4 id="基本地址交换"><a href="#基本地址交换" class="headerlink" title="基本地址交换"></a>基本地址交换</h4><h4 id="具有快表的地址变换机构"><a href="#具有快表的地址变换机构" class="headerlink" title="具有快表的地址变换机构"></a>具有快表的地址变换机构</h4><h4 id="两级页表"><a href="#两级页表" class="headerlink" title="两级页表"></a>两级页表</h4><h4 id="基本分段存储管理方式"><a href="#基本分段存储管理方式" class="headerlink" title="基本分段存储管理方式"></a>基本分段存储管理方式</h4><h4 id="段页式管理"><a href="#段页式管理" class="headerlink" title="段页式管理"></a>段页式管理</h4><h4 id="虚拟内存的基本概念"><a href="#虚拟内存的基本概念" class="headerlink" title="虚拟内存的基本概念"></a>虚拟内存的基本概念</h4><h4 id="请求分页管理方式"><a href="#请求分页管理方式" class="headerlink" title="请求分页管理方式"></a>请求分页管理方式</h4><h4 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h4><h4 id="页面分配策略"><a href="#页面分配策略" class="headerlink" title="页面分配策略"></a>页面分配策略</h4><h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h4 id="文件管理初始"><a href="#文件管理初始" class="headerlink" title="文件管理初始"></a>文件管理初始</h4><h4 id="文件的逻辑结构"><a href="#文件的逻辑结构" class="headerlink" title="文件的逻辑结构"></a>文件的逻辑结构</h4><h4 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h4><h4 id="文件的物理结构"><a href="#文件的物理结构" class="headerlink" title="文件的物理结构"></a>文件的物理结构</h4><h4 id="文件存储空间"><a href="#文件存储空间" class="headerlink" title="文件存储空间"></a>文件存储空间</h4><h4 id="文件的基本操作"><a href="#文件的基本操作" class="headerlink" title="文件的基本操作"></a>文件的基本操作</h4><h4 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h4><h4 id="文件保护"><a href="#文件保护" class="headerlink" title="文件保护"></a>文件保护</h4><h4 id="文件系统的层次结构"><a href="#文件系统的层次结构" class="headerlink" title="文件系统的层次结构"></a>文件系统的层次结构</h4><h4 id="磁盘的结构"><a href="#磁盘的结构" class="headerlink" title="磁盘的结构"></a>磁盘的结构</h4><h4 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h4><h4 id="减少磁盘延迟时间的方法"><a href="#减少磁盘延迟时间的方法" class="headerlink" title="减少磁盘延迟时间的方法"></a>减少磁盘延迟时间的方法</h4><h4 id="磁盘的管理"><a href="#磁盘的管理" class="headerlink" title="磁盘的管理"></a>磁盘的管理</h4><h2 id="I-O"><a href="#I-O" class="headerlink" title="I-O"></a>I-O</h2><h4 id="I-O-设备的概念与分类"><a href="#I-O-设备的概念与分类" class="headerlink" title="I-O 设备的概念与分类"></a>I-O 设备的概念与分类</h4><h4 id="I-O控制器"><a href="#I-O控制器" class="headerlink" title="I-O控制器"></a>I-O控制器</h4><h4 id="I-O控制方式"><a href="#I-O控制方式" class="headerlink" title="I-O控制方式"></a>I-O控制方式</h4><h4 id="I-O软件层次结构"><a href="#I-O软件层次结构" class="headerlink" title="I-O软件层次结构"></a>I-O软件层次结构</h4><h4 id="I-O核心子系统"><a href="#I-O核心子系统" class="headerlink" title="I-O核心子系统"></a>I-O核心子系统</h4><h4 id="假脱机技术"><a href="#假脱机技术" class="headerlink" title="假脱机技术"></a>假脱机技术</h4><h4 id="设备的分配与回收"><a href="#设备的分配与回收" class="headerlink" title="设备的分配与回收"></a>设备的分配与回收</h4><h4 id="缓冲区管理"><a href="#缓冲区管理" class="headerlink" title="缓冲区管理"></a>缓冲区管理</h4>]]></content>
+<h4 id="线程与多线程模型"><a href="#线程与多线程模型" class="headerlink" title="线程与多线程模型"></a>线程与多线程模型</h4><ul>
+<li><p>什么是线程？为什么要引入线程？</p>
+<p>有的进程可能需要“同时”做很多事情，但是传统的进程只能串行的执行一系列程序，为此引入了线程，增加并发度。因此，<font color="red">线程是一个基本的CPU执行单元，也是程序执行流的最小单位</font>，引入线程后，不仅进程之间可以并发，从而进一步提升了系统的并发度，使得一个进程内也可以并发处理各种任务。引入线程后<font color="red">进程只作为除CPU外的系统资源分配的单元</font></p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0887.png" alt="img_0887" style="zoom:80%;">
+
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0888.png" alt="img_0888" style="zoom:80%;">
+</li>
+<li><p>线程的实现方式（两种）</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0890.png" alt="img_0890" style="zoom:80%;">
+
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0892.png" alt="img_0892" style="zoom:80%;">
+</li>
+<li><p>多线程模型</p>
+<p>在同时支持用户级线程和内核级线程的系统中，由几个用户级线程映射到几个内核级线程的问题引出了“多线程模型”问题</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0893.png" alt="img_0893" style="zoom:80%;">
+
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0894.png" alt="img_0894" style="zoom:80%;">
+
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0895.png" alt="img_0895" style="zoom:80%;">
+
+</li>
+</ul>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0896.png" alt="img_0896" style="zoom:80%;">
+
+<h4 id="处理机调度的概念、层次"><a href="#处理机调度的概念、层次" class="headerlink" title="处理机调度的概念、层次"></a>处理机调度的概念、层次</h4><ul>
+<li><p>调度是什么？</p>
+<p>由于资源有限，没办法同时处理所有事情，因此确定某种规则决定处理下面任务的顺序</p>
+</li>
+<li><p>调度的三个层次——高级调度（作业调度）</p>
+<p>​    按照一定的原则从外存上处于后备队列的作业中挑选一个（或者多个）的作业，给他们分配内存等必要资源，并建立相应的进程（PCB），使得他们获得竞争处理机的权利。</p>
+<p>高级调度是辅存与内存之间的调度。每个作业只调入一次，调出一次。作业调入时会建立相应的PCB，作业调出时才撤销PCB。高级调度主要是指调入的问题，因为只有调入的时机需要操作系统来确定，但是调出的时机必然是作业运行结束才调出</p>
+</li>
+<li><p>中级调度（内存调度）</p>
+<p>引入虚拟存储技术，我们将暂时不能运行的进程调至外存等待，等他重新具备了运行条件且内存又稍有空闲时，再重新调入内存。这么做的目的是为了提高内存利用率和系统吞吐量。</p>
+<p>暂时调到外存等待的进程状态为<u>挂起状态</u>。值得注意的是，PCB并不会一起调到外存，而是会常驻内存，PCB会记录进程数据在外存中的存放位置，进程状态等信息，操作系统通过内存中的PCB来保持对各个进程的监控、管理。被挂起的进程PCB会被放到的挂起队列中。</p>
+</li>
+<li><p>低级调度（进程调度）</p>
+<p>主要任务是按照某种方法和策略从就绪队列中选取一个进程，将处理机分配给它。频率很高，一般几十毫秒一次</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0897.png" alt="img_0897" style="zoom:80%;">
+
+</li>
+</ul>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0898.png" alt="img_0898" style="zoom:150%;">
+
+<h4 id="进程调度的时机、切换与过程、方式"><a href="#进程调度的时机、切换与过程、方式" class="headerlink" title="进程调度的时机、切换与过程、方式"></a>进程调度的时机、切换与过程、方式</h4><p>什么时候进行进程调度呢？</p>
+<ul>
+<li>当前运行的进程主动放弃处理机<ul>
+<li>进程正常终止</li>
+<li>运行过程中发生异常而终止</li>
+<li>进程主动请求堵塞（如等待I/O）</li>
+</ul>
+</li>
+<li>当前运行的进程被动放弃处理机<ul>
+<li>分给进程的时间片处理完</li>
+<li>有更紧急的事情需要处理</li>
+<li>有更高优先级的进程进入就绪队列</li>
+</ul>
+</li>
+</ul>
+<p>进程调度的方式</p>
+<ul>
+<li>非剥夺方式，只允许进程主动放弃处理机</li>
+<li>剥夺方式，当一个进程正在处理机上执行时，如果有一个更紧迫的进程需要使用处理机，则立即暂停正在运行的进程，把处理机分配给更紧迫的进程。</li>
+</ul>
+<p>进程切换</p>
+<p>一个进程让出处理机，由另一个占用处理机的过程，包括对原来运行进程各个数据的保存（把寄存器等数据保存到PCB中），新的进程各种数据的恢复（把PCB的数据恢复到寄存器、程序计数器、程序状态字中）</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/.img_0899.png" alt="img_0899" style="zoom:150%;">
+
+<h4 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h4><p>CPU利用率</p>
+<p>系统吞吐量</p>
+<p>周转时间</p>
+<p>​    完成时间-到达时间</p>
+<p>​    带权周转时间 = 周转时间/运行时间</p>
+<p>等待时间</p>
+<p>​    完成时间-运行时间-到达时间</p>
+<p>响应时间</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0899.png" alt="img_0899" style="zoom:150%;">
+
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0912.png" alt="img_0912" style="zoom:150%;">
+
+<h4 id="FCFS、SJF、HRRN调度算法"><a href="#FCFS、SJF、HRRN调度算法" class="headerlink" title="FCFS、SJF、HRRN调度算法"></a>FCFS、SJF、HRRN调度算法</h4><p>算法思想、算法规则、用于作业调度/进程调度、抢占式、非抢占式、优缺点、导致饥饿？</p>
+<ol>
+<li><p>FCFS 先来先服务</p>
+<p>主要从公平考虑、按照先后顺序进行服务、用于作业/进程调度时，都是看谁先到达、非抢占式。</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0914.png" alt="img_0914" style="zoom:150%;">
+</li>
+<li><p>SJF 短作业优先</p>
+<p>抢占式的版本新来的任务会与目前任务的剩余时间比较。</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0915.png" alt="img_0915" style="zoom:150%;">
+</li>
+<li><p>HRRN 高响应比优先</p>
+<p>响应比 = 等待时间+要求服务时间/要求服务时间，要求响应比大的优先</p>
+<img src="/2020/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/img_0917.png" alt="img_0917" style="zoom:150%;">
+
+</li>
+</ol>
+<h4 id="调度算法；时间片轮转、优先级、多级反馈队列"><a href="#调度算法；时间片轮转、优先级、多级反馈队列" class="headerlink" title="调度算法；时间片轮转、优先级、多级反馈队列"></a>调度算法；时间片轮转、优先级、多级反馈队列</h4><h4 id="进程同步、进程互斥"><a href="#进程同步、进程互斥" class="headerlink" title="进程同步、进程互斥"></a>进程同步、进程互斥</h4><h4 id="进程互斥的软件实现方法"><a href="#进程互斥的软件实现方法" class="headerlink" title="进程互斥的软件实现方法"></a>进程互斥的软件实现方法</h4><h4 id="进程互斥的硬件实现方法"><a href="#进程互斥的硬件实现方法" class="headerlink" title="进程互斥的硬件实现方法"></a>进程互斥的硬件实现方法</h4><h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h4 id="用信号量实现进程互斥、同步、前驱关系"><a href="#用信号量实现进程互斥、同步、前驱关系" class="headerlink" title="用信号量实现进程互斥、同步、前驱关系"></a>用信号量实现进程互斥、同步、前驱关系</h4><h4 id="生产者、消费者问题"><a href="#生产者、消费者问题" class="headerlink" title="生产者、消费者问题"></a>生产者、消费者问题</h4><h4 id="多生产者，消费者问题"><a href="#多生产者，消费者问题" class="headerlink" title="多生产者，消费者问题"></a>多生产者，消费者问题</h4><h4 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h4><h4 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h4><h4 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h4><h4 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h4><h4 id="死锁的概念"><a href="#死锁的概念" class="headerlink" title="死锁的概念"></a>死锁的概念</h4><h4 id="死锁的处理策略-预防和解除"><a href="#死锁的处理策略-预防和解除" class="headerlink" title="死锁的处理策略-预防和解除"></a>死锁的处理策略-预防和解除</h4><h4 id="死锁的处理策略-如何避免死锁"><a href="#死锁的处理策略-如何避免死锁" class="headerlink" title="死锁的处理策略-如何避免死锁"></a>死锁的处理策略-如何避免死锁</h4><h4 id="死锁的处理策略-检测和解除"><a href="#死锁的处理策略-检测和解除" class="headerlink" title="死锁的处理策略-检测和解除"></a>死锁的处理策略-检测和解除</h4><h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h4 id="内存基础知识"><a href="#内存基础知识" class="headerlink" title="内存基础知识"></a>内存基础知识</h4><h4 id="内存管理的概念"><a href="#内存管理的概念" class="headerlink" title="内存管理的概念"></a>内存管理的概念</h4><h4 id="覆盖与交换"><a href="#覆盖与交换" class="headerlink" title="覆盖与交换"></a>覆盖与交换</h4><h4 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h4><h4 id="动态分区分配算法"><a href="#动态分区分配算法" class="headerlink" title="动态分区分配算法"></a>动态分区分配算法</h4><h4 id="基本分页存储管理的基本概念"><a href="#基本分页存储管理的基本概念" class="headerlink" title="基本分页存储管理的基本概念"></a>基本分页存储管理的基本概念</h4><h4 id="基本地址交换"><a href="#基本地址交换" class="headerlink" title="基本地址交换"></a>基本地址交换</h4><h4 id="具有快表的地址变换机构"><a href="#具有快表的地址变换机构" class="headerlink" title="具有快表的地址变换机构"></a>具有快表的地址变换机构</h4><h4 id="两级页表"><a href="#两级页表" class="headerlink" title="两级页表"></a>两级页表</h4><h4 id="基本分段存储管理方式"><a href="#基本分段存储管理方式" class="headerlink" title="基本分段存储管理方式"></a>基本分段存储管理方式</h4><h4 id="段页式管理"><a href="#段页式管理" class="headerlink" title="段页式管理"></a>段页式管理</h4><h4 id="虚拟内存的基本概念"><a href="#虚拟内存的基本概念" class="headerlink" title="虚拟内存的基本概念"></a>虚拟内存的基本概念</h4><h4 id="请求分页管理方式"><a href="#请求分页管理方式" class="headerlink" title="请求分页管理方式"></a>请求分页管理方式</h4><h4 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h4><h4 id="页面分配策略"><a href="#页面分配策略" class="headerlink" title="页面分配策略"></a>页面分配策略</h4><h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h4 id="文件管理初始"><a href="#文件管理初始" class="headerlink" title="文件管理初始"></a>文件管理初始</h4><h4 id="文件的逻辑结构"><a href="#文件的逻辑结构" class="headerlink" title="文件的逻辑结构"></a>文件的逻辑结构</h4><h4 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h4><h4 id="文件的物理结构"><a href="#文件的物理结构" class="headerlink" title="文件的物理结构"></a>文件的物理结构</h4><h4 id="文件存储空间"><a href="#文件存储空间" class="headerlink" title="文件存储空间"></a>文件存储空间</h4><h4 id="文件的基本操作"><a href="#文件的基本操作" class="headerlink" title="文件的基本操作"></a>文件的基本操作</h4><h4 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h4><h4 id="文件保护"><a href="#文件保护" class="headerlink" title="文件保护"></a>文件保护</h4><h4 id="文件系统的层次结构"><a href="#文件系统的层次结构" class="headerlink" title="文件系统的层次结构"></a>文件系统的层次结构</h4><h4 id="磁盘的结构"><a href="#磁盘的结构" class="headerlink" title="磁盘的结构"></a>磁盘的结构</h4><h4 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h4><h4 id="减少磁盘延迟时间的方法"><a href="#减少磁盘延迟时间的方法" class="headerlink" title="减少磁盘延迟时间的方法"></a>减少磁盘延迟时间的方法</h4><h4 id="磁盘的管理"><a href="#磁盘的管理" class="headerlink" title="磁盘的管理"></a>磁盘的管理</h4><h2 id="I-O"><a href="#I-O" class="headerlink" title="I-O"></a>I-O</h2><h4 id="I-O-设备的概念与分类"><a href="#I-O-设备的概念与分类" class="headerlink" title="I-O 设备的概念与分类"></a>I-O 设备的概念与分类</h4><h4 id="I-O控制器"><a href="#I-O控制器" class="headerlink" title="I-O控制器"></a>I-O控制器</h4><h4 id="I-O控制方式"><a href="#I-O控制方式" class="headerlink" title="I-O控制方式"></a>I-O控制方式</h4><h4 id="I-O软件层次结构"><a href="#I-O软件层次结构" class="headerlink" title="I-O软件层次结构"></a>I-O软件层次结构</h4><h4 id="I-O核心子系统"><a href="#I-O核心子系统" class="headerlink" title="I-O核心子系统"></a>I-O核心子系统</h4><h4 id="假脱机技术"><a href="#假脱机技术" class="headerlink" title="假脱机技术"></a>假脱机技术</h4><h4 id="设备的分配与回收"><a href="#设备的分配与回收" class="headerlink" title="设备的分配与回收"></a>设备的分配与回收</h4><h4 id="缓冲区管理"><a href="#缓冲区管理" class="headerlink" title="缓冲区管理"></a>缓冲区管理</h4>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何生成一个自己的hexo博客</title>
+    <url>/2020/09/08/%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84hexo%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>全局安装hexo-cli，注意，是基于node的。需要安装node.js。安装完成检验一下，在文件夹里面按住shift点击鼠标右键打开powershell窗口输入npm -v , node -v查看版本。如果报错，可能是你还没有开放权限</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、以管理员权限运行 Windows PowerShell</span><br><span class="line"><span class="number">2</span>、输入如下命令：</span><br><span class="line">set-ExecutionPolicy RemoteSigned</span><br><span class="line"><span class="number">3</span>、根据提示输入A</span><br></pre></td></tr></table></figure>
+
+<p>如果没问题，可以npm i -g hexo-cli全局安装了。当然也可以使用淘宝镜像。安装完成后就可以进入下一步了</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//鉴于大家可能没有使用过npm，建议把地址修改一下</span></span><br><span class="line">npm config set registry https:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line"><span class="comment">//输入以下代码查看当前默认站点。如果是taobao就成功了</span></span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>创建一个blog文件夹并进入，当然，起名可以无所谓。在这里打开powershell窗口，使用hexo init 初始化。等待完成后，hexo s 启动服务。这样你就拥有了一个最初的模板了。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>显然，我们不可能只在本地使用，那就直接搞md算了，何必用hexo。为了把我们的博客部署到github上，我们需要在主目录下 npm i -S hexo-deployer-git 安装这个插件帮助我们。接下来，修改一下主目录的_config.yml文件的deploy属性如图</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908201329857.png" alt="image-20200908201329857"></p>
+<p>注意空格，同时在github需要创建一个仓库，取名一定是username.github.io  参照我的。随后使用命令，</p>
+<p>hexo clean,hexo g, hexo d 就完成了往github的上传。这时，在浏览器输入 <a href="https://username.github.io/">https://username.github.io</a> 就可以看到啦（需要等待一小会儿）。</p>
+<p><font color="red">此外，有一些配置也是可以改的，比如title, languages, 等 如果是部署到个人的云服务器上的话可能需要修改URL，我是在github上所以可以暂时不用改</font></p>
+<h2 id="主题theme"><a href="#主题theme" class="headerlink" title="主题theme"></a>主题theme</h2><p>当我们在完成以上的操作后，我们就拥有的自己的一个博客。但是这个博客的功能还是比较简陋的，为了方便，我们可以借用他人开源的一些基于hexo的主题帮助我们更好的装饰我们的博客。这里我使用的是butterfly。注意，如果没有安装git的话是需要安装git并配置一下用户名和email的。此外，也需要一个GitHub帐号。</p>
+<p>github地址: <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>  没事去点个star吧，确实好用~</p>
+<ul>
+<li><p>安装</p>
+<p>安装也比较简单，在主文件夹克隆一下butterfly到themes目录下的butterfly文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone -b master https:&#x2F;&#x2F;github.com&#x2F;jerryc127&#x2F;hexo-theme-butterfly.git themes&#x2F;butterfly</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+<p>修改主目录下的_config.yml文件的theme属性为butterfly，如图_。理论上其他主题可能也可以这样改。当然我只是猜测~</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908202410942.png" alt="image-20200908202410942"></p>
+<p>如果没有pug &amp; stylus renderer,作者也说了，需要这个.那我们就可以安装一下，因为已经安装了node，所以只需要在命令行操作即可    </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>测试</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean, hexo g, hexo s &#x2F;&#x2F;看看效果</span><br></pre></td></tr></table></figure>
+
+<p>理论上已经可以看到自己的博客啦，如果对这个主题不太满意，可以去看看别的主题。总有一款适合你~</p>
+</li>
+</ul>
+<h2 id="功能完善"><a href="#功能完善" class="headerlink" title="功能完善"></a>功能完善</h2><p>做完前面的工作之后，发现可能还是不能满足我的要求，着实有点素。于是我开始了个性化定制~ 这个时候就遇到了一些困难。可能版本不同，网络上先行者的建议与我的还是有点出入。于是，我开始自己查看目录。在butterfly的source目录下出现了_config.yml配置文件。这个文件可能是与主目录下的_config.yml文件合并或覆盖的。因此，修改此文件应该可以解决我们的问题。</p>
+<ul>
+<li><p>menu</p>
+<p>刚打开时menu是被注释掉的，显然，menu还是需要的，我们取消注释并稍微修改一下，注意！！我们修改的时候可以 hexo s 把项目运行起来，这样我们能及时补救错误</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908204113865.png" alt="image-20200908204113865"></p>
+</li>
+<li><p>Image设置</p>
+<p>图片在代码中都有详细的提示，这里我就不过多说了，是选择删掉原图替换还是找网图都是可以的</p>
+</li>
+</ul>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908205136691.png" alt="image-20200908205136691"></p>
+<ul>
+<li><p>categories、tags功能的实现</p>
+<p>在我们把menu搞定之后，虽然出现了一排menu，可是我们却点击不了。这是因为我们还没有这个页面呀，我们可以通过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &#39;pagename&#39;</span><br></pre></td></tr></table></figure>
+
+<p>创建页面，这个创建的是页面，名字与上面menu是对应的，你可以继续如 hexo new page tags。以此类推我们可以创建categories， messageboard等把你需要的页面都创建出来。创建出来后我们是可以不用管创建出的文件的。我们需要做的是在新建的hexo new ‘new article’中把tags、categories写上即可。</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908210251643.png" alt="image-20200908210251643"></p>
+</li>
+</ul>
+<ul>
+<li><p>comment功能的实现，要实现评论功能，我们这里借助的是Valine，需要</p>
+<ul>
+<li><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signin">LeanCloud</a></p>
+</li>
+<li><p>创建应用：选择开发板即可。创建完成后进入应用keys，复制AppId、AppKey。粘贴到</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908211005945.png" alt="image-20200908211005945"></p>
+<p>注意，在这一行需要把comments下的Valine加上，当然你也可以用其他的。这里就相应的修改</p>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200908211034230.png" alt="image-20200908211034230"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>然后还有字数统计、特效等功能，只要你想开都是可以的。因为作者是香港人，所以有中文提示，按照提示来就完事了。</p>
+<p><font color="red">在设置评论时，同时发现了一个问题，即不只是在messageboard下有评论框，在categories、tags下面都有。只需要在创建的index页面下加入这个即可</font></p>
+<pre><code>comments: false</code></pre>
+<p><img src="https://jwgr2333.github.io/imgs/image-20200909200350809.png" alt="image"></p>
+<h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>​    推荐使用hexo-asset-image插件。 在主目录使用 npm install <a href="https://github.com/CodeFalling/hexo-asset-image">https://github.com/CodeFalling/hexo-asset-image</a> – save。安装完成后使用hexo new ‘page’的时候回生成一个同名页面。把图片先放进去再引入即可，</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>暂时就写到这里吧，还有东西是我没有完善的。比如友链、music、videos、线上管理等。日后有时间可以继续完善吧~ 今天先做到这里。不得不说，hexo是一个非常优秀的博客框架。采用Markdown简直不要太方便。对我来说友好度爆棚。。而且用户庞大，意味着可以踩着前人的肩膀上前进。非常感谢先驱者的付出.</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>作者：<a href="https://github.com/jerryc127">jerryc127</a>，github链接：<a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a><br>作者：<a href="https://me.csdn.net/weixin_43350051">XJHui’s Blog</a>，文章链接：<a href="https://blog.csdn.net/weixin_43350051/article/details/104923503">https://blog.csdn.net/weixin_43350051/article/details/104923503</a></p>
+]]></content>
+      <categories>
+        <category>blog build</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -982,5 +1133,18 @@
       <tags>
         <tag>踩坑</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>音乐播放界面毛玻璃</title>
+    <url>/2020/10/14/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E7%95%8C%E9%9D%A2%E6%AF%9B%E7%8E%BB%E7%92%83/</url>
+    <content><![CDATA[<h4 id="实现播放界面毛玻璃效果"><a href="#实现播放界面毛玻璃效果" class="headerlink" title="实现播放界面毛玻璃效果"></a>实现播放界面毛玻璃效果</h4><p>直接上代码</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">	<span class="selector-id">#app</span> &#123;</span></span><br><span class="line">        position: relative;</span><br><span class="line"><span class="css">		<span class="selector-class">.bg-image</span> &#123;</span></span><br><span class="line">            position: absolute;</span><br><span class="line">			width: 100%;</span><br><span class="line">			height: 100%;</span><br><span class="line">            background: url(&#x27;xx&#x27;);</span><br><span class="line">            filter: blur(15px);</span><br><span class="line">            background: &#x27;linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.2),rgba(255,255,255,.9)),no-repeat,url(&#x27;imageUrl&#x27;)&#x27;;</span><br><span class="line"><span class="css">            <span class="selector-tag">opacity</span>: <span class="selector-class">.6</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.bg-mask</span> &#123;</span></span><br><span class="line">            position: absolute;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line"><span class="css">           <span class="selector-tag">background-color</span>: <span class="selector-tag">hsla</span>(0,0,100%,<span class="selector-class">.5</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;bg-image&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--&lt;div class=&quot;bg-mask&quot;&gt;&lt;/div&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>以前是直接在app下用背景做的，一直没有办法实现这种效果。只能做出透明度改变的效果。而且如果这样做容易影响到所有元素的透明度。今天看了下网易云的网页版，是按照bg-mask+bg-image做的。今天试验了一下，可以成功。后来想，如果image已经有blur效果了，为什么要在前面加一个mask呢，结果去掉了mask居然没有任何改变。。</p>
+<p>补习一下fliter属性，filter 属性定义了元素(通常是<img>)的可视效果(例如：模糊与饱和度)。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-filter</span>:  <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    filter: none | <span class="built_in">blur</span>(px)//高斯模糊 | <span class="built_in">brightness</span>(%) | <span class="built_in">contrast</span>(%) | <span class="built_in">drop-shadow</span>() | <span class="built_in">grayscale</span>() | <span class="built_in">hue-rotate</span>() | <span class="built_in">invert</span>() | <span class="built_in">opacity</span>(%) | <span class="built_in">saturate</span>() | <span class="built_in">sepia</span>() | <span class="built_in">url</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>js效果</category>
+      </categories>
   </entry>
 </search>
